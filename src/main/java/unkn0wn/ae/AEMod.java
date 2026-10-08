@@ -40,7 +40,7 @@ import java.util.TreeMap;
 @Mod(
     modid = AEMod.MOD_ID,
     name = "ActumEngine",
-    version = "0.1",
+    version = "0.1b",
     dependencies =
     "required-after:mixinbooter@[7.1,);" +
     "required-after:mclib@[2.4.2,);" +
