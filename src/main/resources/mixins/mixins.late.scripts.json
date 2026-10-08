@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "unkn0wn.ae.api.scripts.mixins",
+  "refmap": "mixins.ae.refmap.json",
+  "mixinPriority": 1000,
+  "mixins": [
+    "MixinScriptWorld",
+    "MixinMappetUIBuilder",
+    "MixinScriptServer",
+    "MixinScriptPlayer",
+    "MixinScriptFactory",
+    "MixinScriptEntity",
+    "MixinScriptNpc",
+    "MixinScriptEvent"
+  ],
+  "client": [
+  ],
+  "server": [
+  ]
+}

@@ -1,0 +1,3821 @@
+{
+    "classes": [
+        {
+            "name": "unkn0wn.ae.api.scripts.user.IScriptVectorAngle",
+            "doc": "Interface representing a scripted vector angle.\n This interface defines methods for performing various operations on vector angles,\n including addition, subtraction, multiplication, length calculation, normalization, scalar and vector product, and others.",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "toString",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "toArrayString",
+                    "doc": "Convert this vector angle to an array string",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "add",
+                    "doc": "Adds the current scripted vector angle to another scripted vector angle.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptVectorAngle",
+                        "doc": "The new script vector angle that is the result of the addition."
+                    },
+                    "arguments": [
+                        {
+                            "name": "other",
+                            "type": "unkn0wn.ae.api.scripts.code.ScriptVectorAngle",
+                            "doc": "The other script vector angle to be folded."
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "subtract",
+                    "doc": "Subtracts another scripted vector angle from the current scripted vector angle.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptVectorAngle",
+                        "doc": "The new script vector angle that is the result of the subtraction."
+                    },
+                    "arguments": [
+                        {
+                            "name": "other",
+                            "type": "unkn0wn.ae.api.scripts.code.ScriptVectorAngle",
+                            "doc": "Another script vector angle to subtract."
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "multiply",
+                    "doc": "Multiplies the current script vector angle by a scalar.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptVectorAngle",
+                        "doc": "The new script vector angle that is the result of multiplying by the scalar."
+                    },
+                    "arguments": [
+                        {
+                            "name": "scalar",
+                            "type": "double",
+                            "doc": "The scalar to multiply the scripted vector angle by."
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "multiply",
+                    "doc": "Calculates the vector product of the current script vector angle with another script vector angle.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptVectorAngle",
+                        "doc": "The new scripted vector angle that is the result of the vector product."
+                    },
+                    "arguments": [
+                        {
+                            "name": "vector",
+                            "type": "unkn0wn.ae.api.scripts.code.ScriptVectorAngle",
+                            "doc": "The other script vector angle with which to calculate the vector product."
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "length",
+                    "doc": "Calculates the length of the current script vector angle.",
+                    "returns": {
+                        "type": "double",
+                        "doc": "The length of the scripted vector angle."
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "normalize",
+                    "doc": "Normalizes the current script vector angle.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptVectorAngle",
+                        "doc": "New normalized script vector angle."
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "dotProduct",
+                    "doc": "Calculates the scalar product of the current script vector angle with another script vector angle.",
+                    "returns": {
+                        "type": "double",
+                        "doc": "Scalar product of script vector angles."
+                    },
+                    "arguments": [
+                        {
+                            "name": "vector",
+                            "type": "unkn0wn.ae.api.scripts.code.ScriptVectorAngle",
+                            "doc": "The other script vector angle with which to calculate the scalar product."
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "crossProduct",
+                    "doc": "Calculates the vector product of the current script vector angle with another script vector angle.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptVectorAngle",
+                        "doc": "The new scripted vector angle that is the result of the vector product."
+                    },
+                    "arguments": [
+                        {
+                            "name": "vector",
+                            "type": "unkn0wn.ae.api.scripts.code.ScriptVectorAngle",
+                            "doc": "The other script vector angle with which to calculate the vector product."
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "divide",
+                    "doc": "Divides the current script vector angle by another script vector angle.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptVectorAngle",
+                        "doc": "The new script vector angle that is the result of the division."
+                    },
+                    "arguments": [
+                        {
+                            "name": "vector",
+                            "type": "unkn0wn.ae.api.scripts.code.ScriptVectorAngle",
+                            "doc": "The other script vector angle to divide the current one by."
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "copy",
+                    "doc": "Creates a copy of the current scripted vector angle.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptVectorAngle",
+                        "doc": "A new script vector angle that is a copy of the current one."
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "equals",
+                    "doc": "Checks if the current script vector angle is equal to another script vector angle.",
+                    "returns": {
+                        "type": "boolean",
+                        "doc": "true if the scripted vector angles are equal, otherwise false."
+                    },
+                    "arguments": [
+                        {
+                            "name": "vector",
+                            "type": "unkn0wn.ae.api.scripts.code.ScriptVectorAngle",
+                            "doc": "The other script vector angle to compare the current one to."
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "equals",
+                    "doc": "Checks if the current script vector angle is equal to the given angle and vector components.",
+                    "returns": {
+                        "type": "boolean",
+                        "doc": "true if the scripted vector angle is equal to the specified components, otherwise false."
+                    },
+                    "arguments": [
+                        {
+                            "name": "angle",
+                            "type": "double",
+                            "doc": "Value of the angle."
+                        },
+                        {
+                            "name": "x",
+                            "type": "double",
+                            "doc": "Value of the x-component of the vector."
+                        },
+                        {
+                            "name": "y",
+                            "type": "double",
+                            "doc": "Value of the y component of the vector."
+                        },
+                        {
+                            "name": "z",
+                            "type": "double",
+                            "doc": "Value of the z-component of the vector."
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.IScriptMatrix",
+            "doc": "Interface representing a script matrix.\n Defines methods for working with matrices, such as getting dimensions, accessing elements,\n creating a copy, smoothing, transposing and other operations.",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "getRows",
+                    "doc": "Returns the number of rows in the matrix.",
+                    "returns": {
+                        "type": "int",
+                        "doc": "the number of rows in the matrix"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getCols",
+                    "doc": "Returns the number of columns in the matrix.",
+                    "returns": {
+                        "type": "int",
+                        "doc": "the number of columns in the matrix"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getValue",
+                    "doc": "Returns the value of the matrix element by the given row and column indices.",
+                    "returns": {
+                        "type": "double",
+                        "doc": "value of matrix element by given indices"
+                    },
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int",
+                            "doc": "row index"
+                        },
+                        {
+                            "name": "col",
+                            "type": "int",
+                            "doc": "column index"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setValue",
+                    "doc": "Sets the value of the matrix element by the given row and column indices.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int",
+                            "doc": "row index"
+                        },
+                        {
+                            "name": "col",
+                            "type": "int",
+                            "doc": "column index"
+                        },
+                        {
+                            "name": "value",
+                            "type": "double",
+                            "doc": "new value of the matrix element"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "hasInRadius",
+                    "doc": "Checks if the matrix contains elements within a given radius from a specified point.",
+                    "returns": {
+                        "type": "boolean",
+                        "doc": "true if the matrix contains elements within the given radius, otherwise false"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "int",
+                            "doc": "x-coordinate of the circle center"
+                        },
+                        {
+                            "name": "y",
+                            "type": "int",
+                            "doc": "y-coordinate of the circle center"
+                        },
+                        {
+                            "name": "r",
+                            "type": "int",
+                            "doc": "radius of the circle"
+                        },
+                        {
+                            "name": "args",
+                            "type": "java.lang.Object",
+                            "doc": "additional arguments (if required)"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "copy",
+                    "doc": "Creates and returns a copy of the current matrix.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.code.ScriptMatrix",
+                        "doc": "a copy of the current matrix"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "smooth",
+                    "doc": "Creates and returns a smoothed version of the current matrix.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.code.ScriptMatrix",
+                        "doc": "a smoothed version of the current matrix"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "transposeMatrix",
+                    "doc": "Creates and returns a transposed version of the current matrix.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.code.ScriptMatrix",
+                        "doc": "the transposed version of the current matrix"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "hasDot",
+                    "doc": "",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y",
+                            "type": "int"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.IScriptMath",
+            "doc": "",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "toDegrees",
+                    "doc": "Converts the given radians to degrees.",
+                    "returns": {
+                        "type": "double",
+                        "doc": "the number of degrees"
+                    },
+                    "arguments": [
+                        {
+                            "name": "radians",
+                            "type": "double",
+                            "doc": "the radians value to convert"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "toRadians",
+                    "doc": "Converts the given degrees to radians.",
+                    "returns": {
+                        "type": "double",
+                        "doc": "the number of radians"
+                    },
+                    "arguments": [
+                        {
+                            "name": "degrees",
+                            "type": "double",
+                            "doc": "the degrees value to convert"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "sign",
+                    "doc": "Gets the sign of the given number.",
+                    "returns": {
+                        "type": "double",
+                        "doc": "-1 if the number is negative,\n 1 if positive, 0 if zero"
+                    },
+                    "arguments": [
+                        {
+                            "name": "number",
+                            "type": "double",
+                            "doc": "the number to check"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "factorial",
+                    "doc": "Calculates the factorial of the given number.",
+                    "returns": {
+                        "type": "double",
+                        "doc": "the factorial value"
+                    },
+                    "arguments": [
+                        {
+                            "name": "number",
+                            "type": "double",
+                            "doc": "the number to calculate factorial for"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "gcd",
+                    "doc": "Calculates the greatest common divisor of the given numbers.",
+                    "returns": {
+                        "type": "double",
+                        "doc": "the greatest common divisor"
+                    },
+                    "arguments": [
+                        {
+                            "name": "a",
+                            "type": "double",
+                            "doc": "the first number"
+                        },
+                        {
+                            "name": "b",
+                            "type": "double",
+                            "doc": "the second number"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "lcm",
+                    "doc": "Calculates the least common multiple of the given numbers.",
+                    "returns": {
+                        "type": "double",
+                        "doc": "the least common multiple"
+                    },
+                    "arguments": [
+                        {
+                            "name": "a",
+                            "type": "double",
+                            "doc": "the first number"
+                        },
+                        {
+                            "name": "b",
+                            "type": "double",
+                            "doc": "the second number"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.IScriptFile",
+            "doc": "",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "getPath",
+                    "doc": "Returns the java Path object.\n\n \u003cp\u003eSee link below for more information.\u003c/p\u003e\n\n \u003cpre\u003e{@code\n    \"https://docs.oracle.com/javase/8/docs/api/java/nio/file/Path.html\"\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "java.nio.file.Path"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getFullName",
+                    "doc": "Returns full name of the file or directory.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var files \u003d mappet.createPath(\"./configs/test.txt\");\n       c.send(files.getFullName()); // returns \"test.txt\"\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getName",
+                    "doc": "Returns name of the file or directory.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var files \u003d mappet.createPath(\"./configs/test.txt\");\n       c.send(files.getName()); // returns \"test\"\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getExtension",
+                    "doc": "Returns extension of the file.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var files \u003d mappet.createPath(\"./configs/test.txt\");\n       c.send(files.getExtension()); // returns \".txt\"\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "resolve",
+                    "doc": "Returns new {@link IScriptFile} with combined path.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var files \u003d mappet.createPath(\"./configs\"); // \"./configs\"\n       var testFile \u003d files.resolve(\"test.txt\"); // \"./configs/test.txt\"\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptFile"
+                    },
+                    "arguments": [
+                        {
+                            "name": "path",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "isFile",
+                    "doc": "Returns true if the path is a file.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var file \u003d mappet.createPath(\"./configs/test.txt\");\n       if (file.isFile()) {\n           c.send(\"This is a file with \" + file.getExtension() + \" extension.\");\n       }\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "isDirectory",
+                    "doc": "Returns true if the path is a directory.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var dir \u003d mappet.createPath(\"./configs\");\n       if (dir.isDirectory()) {\n           c.send(\"This is a directory!\");\n       }\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "write",
+                    "doc": "Writes content to the file.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var file \u003d mappet.getWorldDir().resolve(\"test.txt\");\n       file.write(\"Hello World!\");\n    }\n  }\u003c/pre\u003e\n\n \u003cp\u003eThrows {@link IOException} If an I/O error occurs during the operation.\u003c/p\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "content",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "append",
+                    "doc": "Adds content to the file.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var file \u003d mappet.getWorldDir().resolve(\"test.txt\");\n       file.write(\"Hello World!\");\n       file.append(\"\\nNew line!\");\n    }\n  }\u003c/pre\u003e\n\n \u003cp\u003eThrows {@link IOException} If an I/O error occurs during the operation.\u003c/p\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "content",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "read",
+                    "doc": "Returns content from the file.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var file \u003d mappet.getWorldDir().resolve(\"test.txt\");\n       c.send(file.read());\n    }\n  }\u003c/pre\u003e\n\n \u003cp\u003eThrows {@link IOException} If an I/O error occurs during the operation.\u003c/p\u003e",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "clear",
+                    "doc": "Clear content from the file.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var file \u003d mappet.getWorldDir().resolve(\"test.txt\");\n       file.clear();\n    }\n  }\u003c/pre\u003e\n\n \u003cp\u003eThrows {@link IOException} If an I/O error occurs during the operation.\u003c/p\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "createFile",
+                    "doc": "Creates a new file.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var file \u003d mappet.getWorldDir().resolve(\"test.txt\");\n       file.createFile();\n    }\n  }\u003c/pre\u003e\n\n \u003cp\u003eThrows {@link IOException} If an I/O error occurs during the operation.\u003c/p\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "createDirectory",
+                    "doc": "Creates a new directory.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var file \u003d mappet.getWorldDir().resolve(\"testFolder\");\n       file.createDirectory();\n    }\n  }\u003c/pre\u003e\n\n \u003cp\u003eThrows {@link IOException} If an I/O error occurs during the operation.\u003c/p\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "copy",
+                    "doc": "Copies a file or a directory to new path.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var file \u003d mappet.getWorldDir().resolve(\"test.txt\");\n       file.copy(mappet.getWorldDir().resolve(\"someFolder/test.txt\"));\n    }\n  }\u003c/pre\u003e\n\n \u003cp\u003eThrows {@link IOException} If an I/O error occurs during the operation.\u003c/p\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "path",
+                            "type": "unkn0wn.ae.api.scripts.user.IScriptFile"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "delete",
+                    "doc": "Deletes a file or a directory.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var file \u003d mappet.getWorldDir().resolve(\"test.txt\");\n       file.delete();\n    }\n  }\u003c/pre\u003e\n\n \u003cp\u003eThrows {@link IOException} If an I/O error occurs during the operation.\u003c/p\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "move",
+                    "doc": "Moves a file or a directory to new path.\n\n \u003cp\u003eThis also acts like rename method.\u003c/p\u003e\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var file \u003d mappet.getWorldDir().resolve(\"test.txt\");\n       file.move(mappet.getWorldDir().resolve(\"test1.txt\"));\n    }\n  }\u003c/pre\u003e\n\n \u003cp\u003eThrows {@link IOException} If an I/O error occurs during the operation.\u003c/p\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "path",
+                            "type": "unkn0wn.ae.api.scripts.user.IScriptFile"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "list",
+                    "doc": "Returns a list of contents of the directory.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n       var file \u003d mappet.getWorldDir().resolve(\"mappet\");\n       Java.from(file.list()).forEach(function(f) {\n          c.send(f.getName());\n       });\n    }\n  }\u003c/pre\u003e\n\n \u003cp\u003eThrows {@link IOException} If an I/O error occurs during the operation.\u003c/p\u003e",
+                    "returns": {
+                        "type": "java.util.List"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.IScriptFancyWorld",
+            "doc": "This interface represent a world passed in the event.\n It\u0027s a second interface for fancy functions.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n        var world \u003d c.getFancyWorld();\n\n        // Do something fancy with world...\n    }\n }\u003c/pre\u003e",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "explode",
+                    "doc": "Transforms a block to a falling block in specific coordinates.\n\n \u003cpre\u003e{@code\n c.getFancyWorld().explode(-2, 100, -2, 2, 100, 2, 100);\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "java.util.List",
+                        "doc": "The falling block entities in a list."
+                    },
+                    "arguments": [
+                        {
+                            "name": "x1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "x2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "blocksPercentage",
+                            "type": "int"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "explode",
+                    "doc": "Transforms a block to a falling block in specific coordinates.\n\n \u003cpre\u003e{@code\n c.getFancyWorld().explode(0, 100, 0, 3, 100);\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "java.util.List",
+                        "doc": "The falling block entities in a list."
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z",
+                            "type": "int"
+                        },
+                        {
+                            "name": "radius",
+                            "type": "int"
+                        },
+                        {
+                            "name": "blocksPercentage",
+                            "type": "int"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "tpExplode",
+                    "doc": "Explodes the blocks in the range by teleporting them randomly in an explosive way.\n\n \u003cpre\u003e{@code\n c.getFancyWorld().tpExplode(0, 100, 0, 2, 100, 2, 100);\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "x2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "blocksPercentage",
+                            "type": "int"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "tpExplode",
+                    "doc": "Explodes the blocks in the range by teleporting them randomly in an explosive way.\n\n \u003cpre\u003e{@code\n c.getFancyWorld().tpExplode(0, 100, 0, 3, 100);\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z",
+                            "type": "int"
+                        },
+                        {
+                            "name": "radius",
+                            "type": "int"
+                        },
+                        {
+                            "name": "blocksPercentage",
+                            "type": "int"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setBlock",
+                    "doc": "Sets a block in specific coordinates with a fancy effect.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "state",
+                            "type": "IScriptBlockState"
+                        },
+                        {
+                            "name": "x",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z",
+                            "type": "int"
+                        },
+                        {
+                            "name": "particleType",
+                            "type": "EnumParticleTypes"
+                        },
+                        {
+                            "name": "particlesAmount",
+                            "type": "int"
+                        },
+                        {
+                            "name": "soundEvent",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "volume",
+                            "type": "float"
+                        },
+                        {
+                            "name": "pitch",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "fill",
+                    "doc": "Sets a block in specific coordinates with a fancy effect.\n\n \u003cpre\u003e{@code\n var block \u003d mappet.createBlockState(\"minecraft:air\", 1);\n c.getFancyWorld().fill(5, block, 539, 151, 548, 555, 160, 570, 1, mappet.getParticleType(\"cloud\"), 2, \"\", 0.3, 0.8);\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "mode",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "state",
+                            "type": "IScriptBlockState"
+                        },
+                        {
+                            "name": "x1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "x2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "delayBetweenLayers",
+                            "type": "int"
+                        },
+                        {
+                            "name": "particleType",
+                            "type": "EnumParticleTypes"
+                        },
+                        {
+                            "name": "particlesPerBlock",
+                            "type": "int"
+                        },
+                        {
+                            "name": "soundEvent",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "volume",
+                            "type": "float"
+                        },
+                        {
+                            "name": "pitch",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setTileEntity",
+                    "doc": "Sets a tile entity in specific block with a fancy effect.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z",
+                            "type": "int"
+                        },
+                        {
+                            "name": "blockState",
+                            "type": "IScriptBlockState"
+                        },
+                        {
+                            "name": "tileData",
+                            "type": "INBTCompound"
+                        },
+                        {
+                            "name": "particleType",
+                            "type": "EnumParticleTypes"
+                        },
+                        {
+                            "name": "particlesAmount",
+                            "type": "int"
+                        },
+                        {
+                            "name": "soundEvent",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "volume",
+                            "type": "float"
+                        },
+                        {
+                            "name": "pitch",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "fillTileEntities",
+                    "doc": "Sets a tile entity in specific block with a fancy effect.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "mode",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "x1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "x2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "state",
+                            "type": "IScriptBlockState"
+                        },
+                        {
+                            "name": "tileData",
+                            "type": "INBTCompound"
+                        },
+                        {
+                            "name": "delayBetweenLayers",
+                            "type": "int"
+                        },
+                        {
+                            "name": "particleType",
+                            "type": "EnumParticleTypes"
+                        },
+                        {
+                            "name": "particlesPerBlock",
+                            "type": "int"
+                        },
+                        {
+                            "name": "soundEvent",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "volume",
+                            "type": "float"
+                        },
+                        {
+                            "name": "pitch",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "clone",
+                    "doc": "Clones a block to a specific coordinates with a fancy effect.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z",
+                            "type": "int"
+                        },
+                        {
+                            "name": "xNew",
+                            "type": "int"
+                        },
+                        {
+                            "name": "yNew",
+                            "type": "int"
+                        },
+                        {
+                            "name": "zNew",
+                            "type": "int"
+                        },
+                        {
+                            "name": "particleType",
+                            "type": "EnumParticleTypes"
+                        },
+                        {
+                            "name": "particlesAmount",
+                            "type": "int"
+                        },
+                        {
+                            "name": "soundEvent",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "volume",
+                            "type": "float"
+                        },
+                        {
+                            "name": "pitch",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "clone",
+                    "doc": "Clones a coordinates range to a specific coordinates with a fancy effect.\n\n \u003cpre\u003e{@code\n c.getFancyWorld().clone(2, 527, 150, 549, 536, 155, 545, 527, 160, 549, 20, mappet.getParticleType(\"cloud\"), 20, \"minecraft:block.wood.place\", 0.3, 0.8);\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "mode",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "x1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z1",
+                            "type": "int"
+                        },
+                        {
+                            "name": "x2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "y2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z2",
+                            "type": "int"
+                        },
+                        {
+                            "name": "xNew",
+                            "type": "int"
+                        },
+                        {
+                            "name": "yNew",
+                            "type": "int"
+                        },
+                        {
+                            "name": "zNew",
+                            "type": "int"
+                        },
+                        {
+                            "name": "delayBetweenLayers",
+                            "type": "int"
+                        },
+                        {
+                            "name": "particleType",
+                            "type": "EnumParticleTypes"
+                        },
+                        {
+                            "name": "particlesPerBlock",
+                            "type": "int"
+                        },
+                        {
+                            "name": "soundEvent",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "volume",
+                            "type": "float"
+                        },
+                        {
+                            "name": "pitch",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "loadSchematic",
+                    "doc": "Loads a schematic to a specific coordinates with a fancy effect.\n\n \u003cpre\u003e{@code\n c.getFancyWorld().loadSchematic(\"5\", \"my_schematics\", 500, 166, 569, 20, mappet.getParticleType(\"cloud\"), 3, \"minecraft:block.wood.place\", 0.3, 0.8);\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "mode",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "name",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "target_x",
+                            "type": "int"
+                        },
+                        {
+                            "name": "target_y",
+                            "type": "int"
+                        },
+                        {
+                            "name": "target_z",
+                            "type": "int"
+                        },
+                        {
+                            "name": "delayBetweenLayers",
+                            "type": "int"
+                        },
+                        {
+                            "name": "particleType",
+                            "type": "EnumParticleTypes"
+                        },
+                        {
+                            "name": "particlesPerBlock",
+                            "type": "int"
+                        },
+                        {
+                            "name": "soundEvent",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "volume",
+                            "type": "float"
+                        },
+                        {
+                            "name": "pitch",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "spawnNpc",
+                    "doc": "Spawns a NPC in specific coordinates with a fancy effect.\n\n \u003cpre\u003e{@code\n c.getFancyWorld().spawnNpc(\"McHorse\", \"default\", 500, 166, 569, 0, 90, 0, mappet.getParticleType(\"cloud\"), 0.1, 20, \"minecraft:entity.zombie.infect\", 0.3, 0.8);\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "IScriptNpc",
+                        "doc": "The spawned NPC."
+                    },
+                    "arguments": [
+                        {
+                            "name": "id",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "state",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "x",
+                            "type": "double"
+                        },
+                        {
+                            "name": "y",
+                            "type": "double"
+                        },
+                        {
+                            "name": "z",
+                            "type": "double"
+                        },
+                        {
+                            "name": "yaw",
+                            "type": "float"
+                        },
+                        {
+                            "name": "pitch",
+                            "type": "float"
+                        },
+                        {
+                            "name": "yawHead",
+                            "type": "float"
+                        },
+                        {
+                            "name": "particleType",
+                            "type": "EnumParticleTypes"
+                        },
+                        {
+                            "name": "particleSpeed",
+                            "type": "double"
+                        },
+                        {
+                            "name": "particlesAmount",
+                            "type": "int"
+                        },
+                        {
+                            "name": "soundEvent",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "volume",
+                            "type": "float"
+                        },
+                        {
+                            "name": "volumePitch",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.renderer.IScriptHudRender",
+            "doc": "Gets a {@link IScriptHudRender} hud.\n\n \u003cpre\u003e{@code\n    ALL,\n    HELMET,\n    PORTAL,\n    CROSSHAIRS,\n    BOSSHEALTH,\n    BOSSINFO,\n    ARMOR,\n    HEALTH,\n    FOOD,\n    AIR,\n    EXPERIENCE,\n    TEXT,\n    HEALTHMOUNT,\n    JUMPBAR,\n    CHAT,\n    PLAYER_LIST,\n    DEBUG,\n    POTION_ICONS,\n    SUBTITLES,\n    FPS_GRAPH,\n    VIGNETTE,\n    HOTBAR\n }\u003c/pre\u003e",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "setRotate",
+                    "doc": "Sets the angle of rotation of the object around the specified axis.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "angle",
+                            "type": "double",
+                            "doc": "the rotation angle in radians"
+                        },
+                        {
+                            "name": "x",
+                            "type": "double",
+                            "doc": "the X component of the rotation axis vector"
+                        },
+                        {
+                            "name": "y",
+                            "type": "double",
+                            "doc": "the Y component of the rotation axis vector"
+                        },
+                        {
+                            "name": "z",
+                            "type": "double",
+                            "doc": "the Z component of the rotation axis vector"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getRotate",
+                    "doc": "Returns the current angle of rotation of the object and the axis of rotation.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.code.ScriptVectorAngle",
+                        "doc": "a ScriptVectorAngle object containing the rotation angle in radians and the rotation axis vector"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setPosition",
+                    "doc": "Sets the position of the object in two-dimensional space.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "double",
+                            "doc": "the X coordinate of the object position"
+                        },
+                        {
+                            "name": "y",
+                            "type": "double",
+                            "doc": "the Y coordinate of the object position"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getPosition",
+                    "doc": "Returns the current position of the object.",
+                    "returns": {
+                        "type": "ScriptVector",
+                        "doc": "a ScriptVector object representing the position of the object"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setScale",
+                    "doc": "Sets the scale of the object.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "double",
+                            "doc": "the X component of the scale vector"
+                        },
+                        {
+                            "name": "y",
+                            "type": "double",
+                            "doc": "the Y component of the scale vector"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getScale",
+                    "doc": "Returns the current scale of the object.",
+                    "returns": {
+                        "type": "ScriptVector",
+                        "doc": "a ScriptVector object representing the scale of the object"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setCanceled",
+                    "doc": "Sets whether the rendering operation should be canceled.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "canceled",
+                            "type": "boolean",
+                            "doc": "true to cancel the rendering operation, false otherwise"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "isCanceled",
+                    "doc": "Returns whether the rendering operation has been canceled.",
+                    "returns": {
+                        "type": "boolean",
+                        "doc": "true if the rendering operation has been canceled, false otherwise"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "resetRotate",
+                    "doc": "Resets the rotation of the hud to its default value.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "resetScale",
+                    "doc": "Resets the scale of the hud to its default value.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "resetPosition",
+                    "doc": "Resets the hud of the camera to its default value.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "rotateTo",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "interpolation",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "durationTicks",
+                            "type": "int"
+                        },
+                        {
+                            "name": "angle",
+                            "type": "float"
+                        },
+                        {
+                            "name": "x",
+                            "type": "float"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float"
+                        },
+                        {
+                            "name": "z",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "moveTo",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "interpolation",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "durationTicks",
+                            "type": "int"
+                        },
+                        {
+                            "name": "x",
+                            "type": "float"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "scaledTo",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "interpolation",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "durationTicks",
+                            "type": "int"
+                        },
+                        {
+                            "name": "x",
+                            "type": "float"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.renderer.IScriptHandRender",
+            "doc": "",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "setRotate",
+                    "doc": "Rotates the arm (main or off). angle - angle in degrees (positive angle \u003d counterclockwise rotation), and x, y and z - vector around which the rotation is performed.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n        const hand \u003d c.player.getHand(0); //0 - main, 1 - off\n\n        hand.setRotate(-90, 0, 1, 0); // Rotate 90 degrees clockwise around the vertical axis\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "angle",
+                            "type": "double"
+                        },
+                        {
+                            "name": "x",
+                            "type": "double"
+                        },
+                        {
+                            "name": "y",
+                            "type": "double"
+                        },
+                        {
+                            "name": "z",
+                            "type": "double"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getRotate",
+                    "doc": "Return rotate arm.\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n        const rotate \u003d c.player.getHand(0).getRotate(); //0 - main, 1 - off\n\n        c.send(rotate.angle); // returns angle arm\n        c.send(rotate.x); // returns x arm\n        c.send(rotate.y); // returns y arm\n        c.send(rotate.z); // returns z arm\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.code.ScriptVectorAngle"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setPosition",
+                    "doc": "Moves the arm through the coordinates\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n        const hand \u003d c.player.getHand(0); //0 - main, 1 - off\n\n        hand.setPosition(0.3, 0, 0);\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "double"
+                        },
+                        {
+                            "name": "y",
+                            "type": "double"
+                        },
+                        {
+                            "name": "z",
+                            "type": "double"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setPosition",
+                    "doc": "Moves the arm through the coordinates\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n        const hand \u003d c.player.getHand(0); //0 - main, 1 - off\n\n        hand.setPosition(mappet.vector(0.7, 0, 0));\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "pos",
+                            "type": "ScriptVector"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getPosition",
+                    "doc": "Return coordinates arm\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n        const hand \u003d c.player.getHand(0); //0 - main, 1 - off\n        const position \u003d hand.getPosition();\n\n        c.send(\"x: \"+position.x+\", y:\"+position.y+\", z:\"+position.z)\n    }\n  }\u003c/pre\u003e\n  /**",
+                    "returns": {
+                        "type": "ScriptVector"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "isCanceled",
+                    "doc": "Returns whether hand canceled is enabled\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n        const hand \u003d c.player.getHand(0); //0 - main, 1 - off\n\n        c.send(hand.isCanceled()) // canceled: boolean\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setCanceled",
+                    "doc": "Enable arm canceled\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n        const hand \u003d c.player.getHand(0); //0 - main, 1 - off\n\n        hand.setCanceled(true)\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "canceled",
+                            "type": "boolean"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "resetRotate",
+                    "doc": "Resets the rotation of the hand to its default value.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "resetPosition",
+                    "doc": "Resets the position of the hand to its default value.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "rotateTo",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "interpolation",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "durationTicks",
+                            "type": "int"
+                        },
+                        {
+                            "name": "angle",
+                            "type": "float"
+                        },
+                        {
+                            "name": "x",
+                            "type": "float"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float"
+                        },
+                        {
+                            "name": "z",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "moveTo",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "interpolation",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "durationTicks",
+                            "type": "int"
+                        },
+                        {
+                            "name": "x",
+                            "type": "float"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float"
+                        },
+                        {
+                            "name": "z",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.renderer.IScriptCameraOver",
+            "doc": "",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "setEnabled",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "enabled",
+                            "type": "boolean"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "isEnabled",
+                    "doc": "",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setSneakAnimationEnabled",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "enabled",
+                            "type": "boolean"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "isSneakAnimationEnabled",
+                    "doc": "",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setViewBobbingEnabled",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "enabled",
+                            "type": "boolean"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "isViewBobbingEnabled",
+                    "doc": "",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setTiltEnabled",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "enabled",
+                            "type": "boolean"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "isTiltEnabled",
+                    "doc": "",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setViewBobbingAmplitude",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "set",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setVerticalTiltFactor",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "set",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setForwardTiltFactor",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "set",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setRotationTiltFactor",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "set",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setStrafingTiltFactor",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "set",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.renderer.IScriptCamera",
+            "doc": "Represents an interface for controlling a script-based camera.",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "getRotate",
+                    "doc": "Returns the current rotation angle and axis of the camera.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.code.ScriptVectorAngle",
+                        "doc": "a ScriptVectorAngle object containing the rotation angle in radians and the rotation axis vector"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setRotate",
+                    "doc": "Sets the rotation of the camera around the specified axis.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "angle",
+                            "type": "float",
+                            "doc": "the rotation angle in radians"
+                        },
+                        {
+                            "name": "x",
+                            "type": "float",
+                            "doc": "the X component of the rotation axis vector"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float",
+                            "doc": "the Y component of the rotation axis vector"
+                        },
+                        {
+                            "name": "z",
+                            "type": "float",
+                            "doc": "the Z component of the rotation axis vector"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getScale",
+                    "doc": "Returns the current scale of the camera.",
+                    "returns": {
+                        "type": "ScriptVector",
+                        "doc": "a ScriptVector object representing the scale of the camera"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setScale",
+                    "doc": "Sets the scale of the camera.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "float",
+                            "doc": "the X component of the scale vector"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float",
+                            "doc": "the Y component of the scale vector"
+                        },
+                        {
+                            "name": "z",
+                            "type": "float",
+                            "doc": "the Z component of the scale vector"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getPosition",
+                    "doc": "Returns the current position of the camera.",
+                    "returns": {
+                        "type": "ScriptVector",
+                        "doc": "a ScriptVector object representing the position of the camera"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setPosition",
+                    "doc": "Sets the position of the camera.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "float",
+                            "doc": "the X component of the position vector"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float",
+                            "doc": "the Y component of the position vector"
+                        },
+                        {
+                            "name": "z",
+                            "type": "float",
+                            "doc": "the Z component of the position vector"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setCanceled",
+                    "doc": "Sets whether the camera operation should be canceled.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "canceled",
+                            "type": "boolean",
+                            "doc": "true to cancel the camera operation, false otherwise"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "isCanceled",
+                    "doc": "Returns whether the camera operation has been canceled.",
+                    "returns": {
+                        "type": "boolean",
+                        "doc": "true if the camera operation has been canceled, false otherwise"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "resetRotate",
+                    "doc": "Resets the rotation of the camera to its default value.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "resetScale",
+                    "doc": "Resets the scale of the camera to its default value.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "resetPosition",
+                    "doc": "Resets the position of the camera to its default value.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "rotateTo",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "interpolation",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "durationTicks",
+                            "type": "int"
+                        },
+                        {
+                            "name": "angle",
+                            "type": "float"
+                        },
+                        {
+                            "name": "x",
+                            "type": "float"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float"
+                        },
+                        {
+                            "name": "z",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "moveTo",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "interpolation",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "durationTicks",
+                            "type": "int"
+                        },
+                        {
+                            "name": "x",
+                            "type": "float"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float"
+                        },
+                        {
+                            "name": "z",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "scaledTo",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "interpolation",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "durationTicks",
+                            "type": "int"
+                        },
+                        {
+                            "name": "x",
+                            "type": "float"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float"
+                        },
+                        {
+                            "name": "z",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.renderer.Interpolation",
+            "doc": "Interpolation is used in {@link IScriptCamera}, {@link IScriptHandRender} and {@link IScriptHudRender}.\n \u003cp\u003eInterpolation creates smooth movements via the Mclib\u0027s mod by McHorse.\u003c/p\u003e\n\n \u003cpre\u003e{@code\n     linear,\n\n     quad_in,\n     quad_out,\n     quad_inout,\n\n     cubic_in,\n     cubic_out,\n     cubic_inout,\n\n     exp_in,\n     exp_out,\n     exp_inout,\n\n     back_in,\n     back_out,\n     back_inout,\n\n     elastic_in,\n     elastic_out,\n     elastic_inout,\n\n     bounce_in,\n     bounce_out,\n     bounce_inout,\n\n     sine_in,\n     sine_out,\n     sine_inout,\n\n     quart_in,\n     quart_out,\n     quart_inout,\n\n     quint_in,\n     quint_out,\n     quint_inout,\n\n     circle_in,\n     circle_out,\n     circle_inout.\n }\u003c/pre\u003e",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "INFO",
+                    "doc": "Interpolation is used in {@link IScriptCamera}, {@link IScriptHandRender} and {@link IScriptHudRender}.\n \u003cp\u003eInterpolation creates smooth movements via the Mclib\u0027s mod by McHorse.\u003c/p\u003e\n\n \u003cpre\u003e{@code\n     linear,\n\n     quad_in,\n     quad_out,\n     quad_inout,\n\n     cubic_in,\n     cubic_out,\n     cubic_inout,\n\n     exp_in,\n     exp_out,\n     exp_inout,\n\n     back_in,\n     back_out,\n     back_inout,\n\n     elastic_in,\n     elastic_out,\n     elastic_inout,\n\n     bounce_in,\n     bounce_out,\n     bounce_inout,\n\n     sine_in,\n     sine_out,\n     sine_inout,\n\n     quart_in,\n     quart_out,\n     quart_inout,\n\n     quint_in,\n     quint_out,\n     quint_inout,\n\n     circle_in,\n     circle_out,\n     circle_inout.\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.trigger.IScriptTriggerFactory",
+            "doc": "Using for creating {@link IScriptScriptTriggerBlock} objects.\n\n \u003cpre\u003e{@code\n function main(c) {\n     var tile \u003d c.world.getTileEntity(61, 80, -141);\n     var triggerFactory \u003d mappet.getTriggerFactory();\n     var trigger \u003d triggerFactory.createTrigger();\n\n     var block \u003d triggerFactory.createCommandTriggerBlock();\n     block.setString(\"/say 1\");\n     trigger.add(block);\n\n     var eventBlock \u003d triggerFactory.createEventTriggerBlock();\n     eventBlock.setString(\"ab\")\n     trigger.add(eventBlock)\n\n     var scriptBlock \u003d triggerFactory.createScriptTriggerBlock();\n     scriptBlock.setInline(true)\n     scriptBlock.setInlineCode(test + \"test(c)\")\n     trigger.add(scriptBlock)\n\n     tile.setRight(trigger)\n }\n\n function test(c) {\n     c.send(c.subject.name + \" Гжегож Бженчешчикевич!\")\n }\n }\u003c/pre\u003e\n\n \u003cp\u003eYou can also create trigger blocks from mappet objects. ({@link IScriptTrigger#getBlocks()})\u003c/p\u003e\n\n \u003cpre\u003e{@code\n function main(c) {\n     var tile \u003d c.world.getTileEntity(61, 80, -141);\n     var triggerFactory \u003d mappet.getTriggerFactory();\n     var trigger \u003d tile.getLeft();\n     var commandBlock \u003d triggerFactory.createCommandTriggerBlock(trigger.getBlocks()[0]);\n     commandBlock.setString(\"/say try again\");\n     trigger.remove(0);\n     trigger.add(commandBlock);\n     tile.setLeft(trigger);\n }\n }\u003c/pre\u003e",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "createTrigger",
+                    "doc": "Creates an instance of the IScriptTrigger.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "createTrigger",
+                    "doc": "Creates a new IScriptTrigger based on the given mappet Trigger object (NOT A {@link IScriptTrigger}).",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger"
+                    },
+                    "arguments": [
+                        {
+                            "name": "mappetTrigger",
+                            "type": "Trigger"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "createCommandTriggerBlock",
+                    "doc": "Creates a new {@link IScriptCommandTriggerBlock}.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptCommandTriggerBlock"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "createCommandTriggerBlock",
+                    "doc": "Creates a new {@link IScriptCommandTriggerBlock} based on the given mappet {@link CommandTriggerBlock} object.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptCommandTriggerBlock"
+                    },
+                    "arguments": [
+                        {
+                            "name": "triggerBlock",
+                            "type": "CommandTriggerBlock"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "createDialogueTriggerBlock",
+                    "doc": "Creates a new {@link IScriptDialogueTriggerBlock}.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptDialogueTriggerBlock"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "createDialogueTriggerBlock",
+                    "doc": "Creates a new {@link IScriptDialogueTriggerBlock} based on the given mappet {@link DialogueTriggerBlock} object.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptDialogueTriggerBlock"
+                    },
+                    "arguments": [
+                        {
+                            "name": "triggerBlock",
+                            "type": "DialogueTriggerBlock"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "createEventTriggerBlock",
+                    "doc": "Creates a new {@link IScriptEventTriggerBlock}.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptEventTriggerBlock"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "createEventTriggerBlock",
+                    "doc": "Creates a new {@link IScriptEventTriggerBlock} based on the given mappet {@link EventTriggerBlock} object.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptEventTriggerBlock"
+                    },
+                    "arguments": [
+                        {
+                            "name": "triggerBlock",
+                            "type": "EventTriggerBlock"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "createMorphTriggerBlock",
+                    "doc": "Creates a new {@link IScriptMorphTriggerBlock}.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptMorphTriggerBlock"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "createMorphTriggerBlock",
+                    "doc": "Creates a new {@link IScriptMorphTriggerBlock} based on the given mappet {@link MorphTriggerBlock} object.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptMorphTriggerBlock"
+                    },
+                    "arguments": [
+                        {
+                            "name": "triggerBlock",
+                            "type": "MorphTriggerBlock"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "createScriptTriggerBlock",
+                    "doc": "Creates a new {@link IScriptScriptTriggerBlock}.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptScriptTriggerBlock"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "createScriptTriggerBlock",
+                    "doc": "Creates a new {@link IScriptScriptTriggerBlock} based on the given mappet {@link ScriptTriggerBlock} object.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptScriptTriggerBlock"
+                    },
+                    "arguments": [
+                        {
+                            "name": "triggerBlock",
+                            "type": "ScriptTriggerBlock"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "createSoundTriggerBlock",
+                    "doc": "Creates a new {@link IScriptSoundTriggerBlock}.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptSoundTriggerBlock"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "createSoundTriggerBlock",
+                    "doc": "Creates a new {@link IScriptSoundTriggerBlock} based on the given mappet {@link SoundTriggerBlock} object.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptSoundTriggerBlock"
+                    },
+                    "arguments": [
+                        {
+                            "name": "triggerBlock",
+                            "type": "SoundTriggerBlock"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "createStateTriggerBlock",
+                    "doc": "Creates a new {@link IScriptStateTriggerBlock}.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptStateTriggerBlock"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "createStateTriggerBlock",
+                    "doc": "Creates a new {@link IScriptStateTriggerBlock} based on the given mappet {@link StateTriggerBlock} object.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptStateTriggerBlock"
+                    },
+                    "arguments": [
+                        {
+                            "name": "triggerBlock",
+                            "type": "StateTriggerBlock"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+            "doc": "",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "getBlocks",
+                    "doc": "Retrieves the list of condition blocks.\n\n \u003cp\u003eSee {@link IScriptTriggerFactory} for more info.\u003c/p\u003e",
+                    "returns": {
+                        "type": "java.util.List"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setBlocks",
+                    "doc": "Sets the given list of trigger blocks to this trigger.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "blocks",
+                            "type": "java.util.List"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "remove",
+                    "doc": "Removes a trigger block at the specified index.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "get",
+                    "doc": "Retrieves the IScriptTriggerBlock element at the specified index.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.utils.IScriptTriggerBlock"
+                    },
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "set",
+                    "doc": "Set the script trigger block at the specified index.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int"
+                        },
+                        {
+                            "name": "triggerBlock",
+                            "type": "unkn0wn.ae.api.scripts.user.trigger.utils.IScriptTriggerBlock"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "isEmpty",
+                    "doc": "Checks if the blocks list doesn\u0027t contain any trigger.",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getTrigger",
+                    "doc": "Retrieves the mappet trigger object.",
+                    "returns": {
+                        "type": "Trigger"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.trigger.IScriptStateTriggerBlock",
+            "doc": "",
+            "interfaces": [
+                "unkn0wn.ae.api.scripts.user.trigger.utils.IScriptStringTriggerBlock"
+            ],
+            "methods": [
+                {
+                    "name": "getTarget",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setTarget",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "target",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getValue",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.Object"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setValue",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "value",
+                            "type": "java.lang.Object"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getMode",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setMode",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "mode",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.trigger.IScriptSoundTriggerBlock",
+            "doc": "",
+            "interfaces": [
+                "unkn0wn.ae.api.scripts.user.trigger.utils.IScriptStringTriggerBlock"
+            ],
+            "methods": [
+                {
+                    "name": "getTarget",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setTarget",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "target",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.trigger.IScriptScriptTriggerBlock",
+            "doc": "",
+            "interfaces": [
+                "unkn0wn.ae.api.scripts.user.trigger.utils.IScriptDataTriggerBlock"
+            ],
+            "methods": [
+                {
+                    "name": "getFunction",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setFunction",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "function",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getInlineCode",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setInlineCode",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "code",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "isInline",
+                    "doc": "",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setInline",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "inline",
+                            "type": "boolean"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.trigger.IScriptMorphTriggerBlock",
+            "doc": "",
+            "interfaces": [
+                "unkn0wn.ae.api.scripts.user.trigger.utils.IScriptTriggerBlock"
+            ],
+            "methods": [
+                {
+                    "name": "getMorph",
+                    "doc": "",
+                    "returns": {
+                        "type": "AbstractMorph"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setMorph",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "morph",
+                            "type": "AbstractMorph"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getTarget",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setTarget",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "target",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getSelector",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setSelector",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "selector",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.trigger.IScriptItemTriggerBlock",
+            "doc": "",
+            "interfaces": [
+                "unkn0wn.ae.api.scripts.user.trigger.utils.IScriptTriggerBlock"
+            ],
+            "methods": [
+                {
+                    "name": "getTarget",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setTarget",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "target",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getMode",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setMode",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "mode",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.trigger.utils.IScriptTriggerBlock",
+            "doc": "",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "isEmpty",
+                    "doc": "",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getTriggerBlock",
+                    "doc": "",
+                    "returns": {
+                        "type": "AbstractTriggerBlock"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.trigger.utils.IScriptStringTriggerBlock",
+            "doc": "",
+            "interfaces": [
+                "unkn0wn.ae.api.scripts.user.trigger.utils.IScriptTriggerBlock"
+            ],
+            "methods": [
+                {
+                    "name": "getString",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setString",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "string",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.trigger.utils.IScriptDataTriggerBlock",
+            "doc": "",
+            "interfaces": [
+                "unkn0wn.ae.api.scripts.user.trigger.utils.IScriptStringTriggerBlock"
+            ],
+            "methods": [
+                {
+                    "name": "getData",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setData",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "string",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.mixins.MixinScriptWorld",
+            "doc": "",
+            "superclass": "java.lang.Object",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "chunkLoad",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "int"
+                        },
+                        {
+                            "name": "z",
+                            "type": "int"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setModelBlockEnabled",
+                    "doc": "Enable or disable a model block at a given position in this world.\n It only works when Blockbuster mod is installed.\n\n \u003cpre\u003e{@code\n     function main(c)\n     {\n         var pos \u003d c.getSubject().getPosition()\n         var enabled \u003d true;\n\n         c.getWorld().setModelBlockEnabled(pos.x, pos.y, pos.z, enabled);\n     }\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "int",
+                            "doc": "X coordinate of a model block."
+                        },
+                        {
+                            "name": "y",
+                            "type": "int",
+                            "doc": "Y coordinate of a model block."
+                        },
+                        {
+                            "name": "z",
+                            "type": "int",
+                            "doc": "Z coordinate of a model block."
+                        },
+                        {
+                            "name": "enabled",
+                            "type": "boolean",
+                            "doc": "Whether to enable or disable the model block."
+                        }
+                    ],
+                    "annotations": [
+                        "java.lang.Deprecated"
+                    ]
+                },
+                {
+                    "name": "isModelBlockEnabled",
+                    "doc": "Check whether a model block at a given position in this world is enabled or not.\n It only works when Blockbuster mod is installed.\n\n \u003cpre\u003e{@code\n     c.send(c.getWorld().isModelBlockEnabled(0, 4, 0));\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "int",
+                            "doc": "X coordinate of a model block."
+                        },
+                        {
+                            "name": "y",
+                            "type": "int",
+                            "doc": "Y coordinate of a model block."
+                        },
+                        {
+                            "name": "z",
+                            "type": "int",
+                            "doc": "Z coordinate of a model block."
+                        }
+                    ],
+                    "annotations": [
+                        "java.lang.Deprecated"
+                    ]
+                },
+                {
+                    "name": "setModelBlockMorph",
+                    "doc": "Set morph (from NBT) to a model block at given position in this world.\n It only works when Blockbuster mod is installed.\n\n \u003cpre\u003e{@code\n     function main(c)\n     {\n         var pos \u003d c.getSubject().getPosition()\n         var nbt \u003d \u0027{Settings:{Hands:1b},Name:\"blockbuster.fred\"}\u0027;\n\n         c.getWorld().setModelBlock(nbt, pos.x, pos.y, pos.z, true);\n     }\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "nbt",
+                            "type": "java.lang.String",
+                            "doc": "NBT of a morph to be replaced for given model block."
+                        },
+                        {
+                            "name": "x",
+                            "type": "int",
+                            "doc": "X coordinate of a model block."
+                        },
+                        {
+                            "name": "y",
+                            "type": "int",
+                            "doc": "Y coordinate of a model block."
+                        },
+                        {
+                            "name": "z",
+                            "type": "int",
+                            "doc": "Z coordinate of a model block."
+                        },
+                        {
+                            "name": "force",
+                            "type": "boolean",
+                            "doc": "Force update model block to update the morph even if the morph is same."
+                        }
+                    ],
+                    "annotations": [
+                        "java.lang.Deprecated"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.mixins.MixinScriptServer",
+            "doc": "",
+            "superclass": "java.lang.Object",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "downloadFromURL",
+                    "doc": "download the file from the url to the specified path on the server.\n\n \u003cpre\u003e{@code\n    function main(c) {\n        c.player.downloadFromURL(\u0027https://drive.google.com/file/d/19kMtDmVhzrGMO4J0f_vjVKTZlVZ5VCdq/view?usp\u003dsharing\u0027, \u0027config/icon.png\u0027)\n    }\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "url",
+                            "type": "java.lang.String",
+                            "doc": "url"
+                        },
+                        {
+                            "name": "path",
+                            "type": "java.lang.String",
+                            "doc": "the destination path on the server to save the file"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getFancyWorld",
+                    "doc": "Get fancy world at dimension ID.\n\n \u003cpre\u003e{@code\n    var overworld \u003d c.getServer().getFancyWorld(0);\n\n    // Do something with the world...\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptFancyWorld"
+                    },
+                    "arguments": [
+                        {
+                            "name": "dimension",
+                            "type": "int"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.mixins.MixinScriptPlayer",
+            "doc": "",
+            "superclass": "java.lang.Object",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "getPing",
+                    "doc": "Gets ping for player.",
+                    "returns": {
+                        "type": "int"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getLanguage",
+                    "doc": "Gets the language that this player has set.",
+                    "returns": {
+                        "type": "java.lang.String",
+                        "doc": "the player\u0027s language code"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "soundUpdate",
+                    "doc": "Sends a packet to update sounds for this player.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "textureUpdate",
+                    "doc": "Sends a packet to update textures for this player.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "download",
+                    "doc": "Download files from the specified world directory to the player\u0027s disk. If you don\u0027t specify a disk in the file path, you will start from the game folder.\n\n \u003cpre\u003e{@code\n    function main(c) {\n        const DimensionManager \u003d Java.type(\u0027net.minecraftforge.common.DimensionManager\u0027)\n        const worldDir \u003d DimensionManager.getCurrentSaveRootDirectory().toPath()\n        var filePath \u003d worldDir.resolve(\u0027icon.png\u0027).toString()\n\n        // Loads the icon.png picture from the world folder, to the player in the config folder\n        c.player.download(filePath, \u0027config/icon.png\u0027)\n    }\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "filePath",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "path",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "upload",
+                    "doc": "upload a file from the specified path on the player\u0027s disk to the specified path on the server.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "filePath",
+                            "type": "java.lang.String",
+                            "doc": "the path of the file to upload"
+                        },
+                        {
+                            "name": "path",
+                            "type": "java.lang.String",
+                            "doc": "the destination path on the server to save the file"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "downloadFromURL",
+                    "doc": "Downloads a file from a URL and saves it to the specified file path on the player\u0027s disk.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "url",
+                            "type": "java.lang.String",
+                            "doc": "the URL from which to download the file"
+                        },
+                        {
+                            "name": "path",
+                            "type": "java.lang.String",
+                            "doc": "the destination path on the player\u0027s disk"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "reloadModels",
+                    "doc": "Reloads chameleon models to the player",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getTime",
+                    "doc": "Gets the current time of the client.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "callback",
+                            "type": "java.util.function.Consumer",
+                            "doc": ""
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getCamera",
+                    "doc": "Gets a {@link IScriptCamera} for the current player.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.renderer.IScriptCamera",
+                        "doc": "the camera instance"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getCameraOver",
+                    "doc": "Gets a {@link IScriptCameraOver} for the current player",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.renderer.IScriptCameraOver",
+                        "doc": "the camera instance"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getHand",
+                    "doc": "Gets a {@link IScriptHandRender} main or off - hand; 0 - main; 1 - off;.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.renderer.IScriptHandRender"
+                    },
+                    "arguments": [
+                        {
+                            "name": "hand",
+                            "type": "int"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getHud",
+                    "doc": "Gets the {@link IScriptHudRender} with the specified name for the current player.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.renderer.IScriptHudRender"
+                    },
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "java.lang.String",
+                            "doc": "the name of the HUD render"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setSkin",
+                    "doc": "Sets the skin (image morph) for the player. If null, the texture will become standard.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "morph",
+                            "type": "AbstractMorph"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setSkinType",
+                    "doc": "Sets the skin type (steve or slim) for the player.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "type",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "saveScreenshot",
+                    "doc": "Saves screenshots to the specified path with the specified name.\n\n\u003cpre\u003e{@code\n function main(c)\n {\n     c.subject.saveScreenshot(\"\\\\config\", \"name\")\n }\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void",
+                        "doc": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "path",
+                            "type": "java.lang.String",
+                            "doc": ""
+                        },
+                        {
+                            "name": "name",
+                            "type": "java.lang.String",
+                            "doc": ""
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getShaderPack",
+                    "doc": "Return player used shaderpack\n\n \u003cpre\u003e{@code\n    function main(c)\n    {\n      c.subject.getShaderPack(function(shader)\n      {\n          this.shader \u003d shader.replace(\".zip\", \"\")\n\n          mappet.set(\"shader\", this.shader)\n      })\n\n      var shader \u003d mappet.get(\"shader\")\n\n      c.send(shader)\n    }\n  }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "callback",
+                            "type": "java.util.function.Consumer"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.mixins.MixinScriptNpc",
+            "doc": "",
+            "superclass": "\u003cany\u003e",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "addPatrolPoint",
+                    "doc": "Adds a new patrol point at the given coordinates.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "int",
+                            "doc": "X coordinate"
+                        },
+                        {
+                            "name": "y",
+                            "type": "int",
+                            "doc": "Y coordinate"
+                        },
+                        {
+                            "name": "z",
+                            "type": "int",
+                            "doc": "Z coordinate"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "addPatrolPoint",
+                    "doc": "Adds a new patrol point using the given vector position.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "pos",
+                            "type": "ScriptVector",
+                            "doc": "Position vector"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "addPatrolPoint",
+                    "doc": "Adds a new patrol point with the given position and trigger.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "pos",
+                            "type": "ScriptVector",
+                            "doc": "Position vector"
+                        },
+                        {
+                            "name": "trigger",
+                            "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                            "doc": "Trigger for this patrol point"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "addPatrolPoint",
+                    "doc": "Adds a new patrol point with the given coordinates and trigger.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "x",
+                            "type": "int",
+                            "doc": "X coordinate"
+                        },
+                        {
+                            "name": "y",
+                            "type": "int",
+                            "doc": "Y coordinate"
+                        },
+                        {
+                            "name": "z",
+                            "type": "int",
+                            "doc": "Z coordinate"
+                        },
+                        {
+                            "name": "trigger",
+                            "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                            "doc": "Trigger for this patrol point"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setPatrolPoint",
+                    "doc": "Sets the patrol point at the given index to the new position and trigger.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int",
+                            "doc": "Index of patrol point to update"
+                        },
+                        {
+                            "name": "x",
+                            "type": "int",
+                            "doc": "New X coordinate"
+                        },
+                        {
+                            "name": "y",
+                            "type": "int",
+                            "doc": "New Y coordinate"
+                        },
+                        {
+                            "name": "z",
+                            "type": "int",
+                            "doc": "New Z coordinate"
+                        },
+                        {
+                            "name": "trigger",
+                            "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                            "doc": "New trigger"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getPatrolPoint",
+                    "doc": "Gets the position vector of the patrol point at the given index.",
+                    "returns": {
+                        "type": "ScriptVector",
+                        "doc": "Position vector of the patrol point"
+                    },
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int",
+                            "doc": "Index of patrol point"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getPatrolTrigger",
+                    "doc": "Gets the trigger for the patrol point at the given index.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                        "doc": "Patrol point trigger"
+                    },
+                    "arguments": [
+                        {
+                            "name": "index",
+                            "type": "int",
+                            "doc": "Index of patrol point"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getInitializationTrigger",
+                    "doc": "Gets the initialization trigger.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                        "doc": "The initialization trigger"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setInitializationTrigger",
+                    "doc": "Sets the initialization trigger.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "trigger",
+                            "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                            "doc": "The new initialization trigger"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getInteractionTrigger",
+                    "doc": "Gets the interaction trigger.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                        "doc": "The interaction trigger"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setInteractionTrigger",
+                    "doc": "Sets the interaction trigger.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "trigger",
+                            "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                            "doc": "The new interaction trigger"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getDamagedTrigger",
+                    "doc": "Gets the damaged trigger.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                        "doc": "The damaged trigger"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setDamagedTrigger",
+                    "doc": "Sets the damaged trigger.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "trigger",
+                            "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                            "doc": "The new damaged trigger"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getDeathTrigger",
+                    "doc": "Gets the death trigger.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                        "doc": "The death trigger"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setDeathTrigger",
+                    "doc": "Sets the death trigger.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "trigger",
+                            "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                            "doc": "The new death trigger"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getTickTrigger",
+                    "doc": "Gets the tick trigger.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                        "doc": "The tick trigger"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setTickTrigger",
+                    "doc": "Sets the tick trigger.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "trigger",
+                            "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                            "doc": "The new tick trigger"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getTargetTrigger",
+                    "doc": "Gets the target trigger.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                        "doc": "The target trigger"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setTargetTrigger",
+                    "doc": "Sets the target trigger.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "trigger",
+                            "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                            "doc": "The new target trigger"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getCollisionTrigger",
+                    "doc": "Gets the collision trigger.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                        "doc": "The collision trigger"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setCollisionTrigger",
+                    "doc": "Sets the collision trigger.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "trigger",
+                            "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                            "doc": "The new collision trigger"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getRespawnTrigger",
+                    "doc": "Gets the respawn trigger.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                        "doc": "The respawn trigger"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setRespawnTrigger",
+                    "doc": "Sets the respawn trigger.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "trigger",
+                            "type": "unkn0wn.ae.api.scripts.user.trigger.IScriptTrigger",
+                            "doc": "The new respawn trigger"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.mixins.MixinScriptFactory",
+            "doc": "",
+            "superclass": "java.lang.Object",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "createMatrix",
+                    "doc": "Creates and returns a new {@link IScriptMatrix} object with the specified number of rows and columns.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.code.ScriptMatrix",
+                        "doc": "a new {@link IScriptMatrix} object with the specified dimensions"
+                    },
+                    "arguments": [
+                        {
+                            "name": "rows",
+                            "type": "int",
+                            "doc": "the number of rows in the new matrix"
+                        },
+                        {
+                            "name": "cols",
+                            "type": "int",
+                            "doc": "the number of columns in the new matrix"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "isModLoaded",
+                    "doc": "Checks if the mod is loaded with the specified ID.",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [
+                        {
+                            "name": "id",
+                            "type": "java.lang.String",
+                            "doc": ""
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "vectorAngle",
+                    "doc": "create {@link IScriptVectorAngle}",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptVectorAngle"
+                    },
+                    "arguments": [
+                        {
+                            "name": "angle",
+                            "type": "double",
+                            "doc": "double"
+                        },
+                        {
+                            "name": "x",
+                            "type": "double",
+                            "doc": "double"
+                        },
+                        {
+                            "name": "y",
+                            "type": "double",
+                            "doc": "double"
+                        },
+                        {
+                            "name": "z",
+                            "type": "double",
+                            "doc": "double"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.mixins.MixinScriptEvent",
+            "doc": "",
+            "superclass": "java.lang.Object",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "getFancyWorld",
+                    "doc": "Get the fancy world in which this event happened.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptFancyWorld"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.mixins.MixinScriptEntity",
+            "doc": "",
+            "superclass": "java.lang.Object",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "getFancyWorld",
+                    "doc": "",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.IScriptFancyWorld"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.mixins.MixinMappetUIBuilder",
+            "doc": "",
+            "superclass": "java.lang.Object",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "scriptEditor",
+                    "doc": "Creates a script editor ui component that supports code highlighting, etc.\n\n \u003cpre\u003e{@code\n     function main(c) {\n         const ui \u003d mappet.createUI(c, \"handler\")\n\n         ui.scriptEditor(\u0027function main(c) {\\n    c.send(\"Hi!\")\\n}\u0027).rwh(0.25, 0.25).rxy(0.5, 0.5).anchor(0.5)\n\n         c.player.openUI(ui)\n     }\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.ui.components.UIScriptEditorComponent"
+                    },
+                    "arguments": [
+                        {
+                            "name": "text",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "scriptEditor",
+                    "doc": "Creates a script editor ui component that supports code highlighting, etc.\n\n \u003cpre\u003e{@code\n     function main(c) {\n         const ui \u003d mappet.createUI(c, \"handler\")\n\n         ui.scriptEditor().rwh(0.25, 0.25).rxy(0.5, 0.5).anchor(0.5)\n\n         c.player.openUI(ui)\n     }\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.ui.components.UIScriptEditorComponent"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "colorPicker",
+                    "doc": "Creates a color picker ui component.\n\n \u003cpre\u003e{@code\n     function main(c) {\n         const ui \u003d mappet.createUI(c, \"handler\")\n\n         ui.colorPicker(0xffffff).rwh(0.25, 0.25).rxy(0.5, 0.5).anchor(0.5)\n\n         c.player.openUI(ui)\n     }\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.ui.components.UIColorPickerComponent"
+                    },
+                    "arguments": [
+                        {
+                            "name": "color",
+                            "type": "int"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "colorPicker",
+                    "doc": "Creates a color picker ui component.\n\n \u003cpre\u003e{@code\n     function main(c) {\n         const ui \u003d mappet.createUI(c, \"handler\")\n\n         ui.colorPicker().rwh(0.25, 0.25).rxy(0.5, 0.5).anchor(0.5)\n\n         c.player.openUI(ui)\n     }\n }\u003c/pre\u003e",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.ui.components.UIColorPickerComponent"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                }
+            ]
+        }
+    ],
+    "packages": [
+        {
+            "name": "unkn0wn.ae.api.scripts.user"
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.renderer"
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.trigger"
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.user.trigger.utils"
+        },
+        {
+            "name": "unkn0wn.ae.api.scripts.mixins"
+        }
+    ]
+}

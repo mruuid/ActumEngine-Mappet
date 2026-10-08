@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "unkn0wn.ae.utils.mixins",
+  "refmap": "mixins.ae.refmap.json",
+  "mixinPriority": 1000,
+  "mixins": [
+    "utils.ss.MixinServerSettings"
+  ],
+  "client": [
+    "client.MixinGuiTextEditor",
+    "client.MixinGuiTriggerBlockScreen",
+    "docs.MixinDocMerger",
+    "docs.MixinAddAE"
+  ],
+  "server": [
+  ]
+}
