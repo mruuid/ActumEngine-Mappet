@@ -9,6 +9,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import unkn0wn.ae.utils.sound.SoundEventHandler;
 import unkn0wn.ae.utils.sound.SoundTickHandler;
+import unkn0wn.ae.utils.RenderingHandler;
 
 /**
  * Mod support Script's [JS 5.1], [HTML and CSS], [GLSL] and [Kotlin]
@@ -35,8 +36,8 @@ public class ClientProxy extends CommonProxy {
         FMLCommonHandler.instance().bus().register(new SoundTickHandler());
     }
 
-    public void registerEventHandlers()
-    {
+    public void registerEventHandlers() {
         MinecraftForge.EVENT_BUS.register(new SoundEventHandler());
+        MinecraftForge.EVENT_BUS.register(new RenderingHandler());
     }
 }

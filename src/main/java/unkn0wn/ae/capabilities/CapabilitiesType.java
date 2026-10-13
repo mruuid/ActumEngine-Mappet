@@ -1,5 +1,5 @@
 package unkn0wn.ae.capabilities;
 
 public enum CapabilitiesType {
-    CAMERA, HAND, HUD, SKIN;
+    CAMERA, HAND, HUD, SKIN, SHADERS;
 }

@@ -1,14 +1,21 @@
 package unkn0wn.ae;
 
+import mchorse.mclib.McLib;
+import mchorse.mclib.commands.utils.L10n;
+import mchorse.mclib.config.ConfigBuilder;
 import mchorse.mclib.config.values.ValueBoolean;
+import mchorse.mclib.events.RegisterConfigEvent;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.audio.ISound;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
+import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -18,10 +25,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.FMLNetworkEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.io.File;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import paulscode.sound.SoundSystemConfig;
 import paulscode.sound.SoundSystemException;
+import unkn0wn.ae.api.shaders.ShadersManager;
 import unkn0wn.ae.network.Dispatcher;
 import unkn0wn.ae.network.packets.PacketCameraOver;
 import unkn0wn.ae.proxy.CommonProxy;
@@ -33,14 +43,12 @@ import javax.vecmath.Vector2d;
 import javax.vecmath.Vector2f;
 import javax.vecmath.Vector3d;
 import javax.vecmath.Vector3f;
-import java.util.Comparator;
-import java.util.Random;
-import java.util.TreeMap;
+import java.util.*;
 
 @Mod(
     modid = AEMod.MOD_ID,
     name = "ActumEngine",
-    version = "0.1b",
+    version = "0.2b",
     dependencies =
     "required-after:mixinbooter@[7.1,);" +
     "required-after:mclib@[2.4.2,);" +
@@ -62,7 +70,14 @@ public class AEMod {
     @Mod.Instance
     public static AEMod instance;
 
+    public static L10n l10n = new L10n(MOD_ID);
+
+    public static List<ISound> listSounds = new ArrayList();
+    public static List<Integer> listFirstTicks = new ArrayList();
+    public static List<Integer> listTicks = new ArrayList();
+
     public ValueBoolean removeRestrictionsScriptBlock;
+    public static ShadersManager shaders;
 
     /* SOUND */
 
@@ -269,14 +284,72 @@ public class AEMod {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        /* Make ActumEngine show up in the McLib settings (config) menu */
+        McLib.EVENT_BUS.register(this);
+
         proxy.preInit(event);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    /**
+     * Register ActumEngine's configuration module in McLib, so "ActumEngine"
+     * appears in the McLib dashboard settings menu (same way Mappet does it).
+     * Categories and options will be added here later on.
+     */
+    @SubscribeEvent
+    public void onConfigRegister(RegisterConfigEvent event) {
+        ConfigBuilder builder = event.createBuilder(MOD_ID);
+
+        builder.category("general");
+        builder.getCategory().markClientSide();
+    }
+
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
+    }
+
+    /**
+     * Resolve (and lazily create) the shaders folder inside the current world's
+     * "mappet" directory so it lives right next to Mappet's other content.
+     */
+    private static File getShadersFolder() {
+        File root = DimensionManager.getCurrentSaveRootDirectory();
+        File folder = root != null ? new File(root, "mappet/shaders") : new File(mc.mcDataDir, "ae/shaders");
+
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+
+        return folder;
+    }
+
+    /**
+     * Initialize the shaders manager if it hasn't been created yet, or re-point
+     * it to the current world's folder. Called on world load.
+     */
+    public static void initShadersManager() {
+        shaders = new ShadersManager(getShadersFolder());
+    }
+
+    /**
+     * Lazily get the shaders manager, creating it on demand so the dashboard
+     * never crashes with a null manager (e.g. when opened outside a world).
+     */
+    public static ShadersManager getShadersManager() {
+        if (shaders == null) {
+            initShadersManager();
+        }
+
+        return shaders;
+    }
+
+    @SubscribeEvent
+    public void onWorldLoad(WorldEvent.Load event) {
+        if (event.getWorld().isRemote && mc.world == event.getWorld()) {
+            initShadersManager();
+        }
     }
 
     /* F.M.L */

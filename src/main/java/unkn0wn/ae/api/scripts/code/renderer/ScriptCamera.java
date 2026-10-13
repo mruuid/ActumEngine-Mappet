@@ -15,6 +15,7 @@ import unkn0wn.ae.network.packets.PacketCapability;
 public class ScriptCamera implements IScriptCamera {
     private final EntityPlayerMP player;
     private final Camera camera;
+
     public ScriptCamera(EntityPlayerMP player) {
         this.player = player;
         this.camera = Camera.get(this.player);

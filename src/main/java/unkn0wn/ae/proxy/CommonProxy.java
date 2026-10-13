@@ -21,9 +21,13 @@ import unkn0wn.ae.capabilities.hand.IHand;
 import unkn0wn.ae.capabilities.hud.Hud;
 import unkn0wn.ae.capabilities.hud.HudStorage;
 import unkn0wn.ae.capabilities.hud.IHud;
+import unkn0wn.ae.capabilities.shaders.IShader;
+import unkn0wn.ae.capabilities.shaders.Shader;
+import unkn0wn.ae.capabilities.shaders.ShaderStorage;
 import unkn0wn.ae.capabilities.skin.ISkin;
 import unkn0wn.ae.capabilities.skin.Skin;
 import unkn0wn.ae.capabilities.skin.SkinStorage;
+import unkn0wn.ae.client.KeyboardHandler;
 import unkn0wn.ae.network.Dispatcher;
 
 import static unkn0wn.ae.AEMod.*;
@@ -37,9 +41,12 @@ public class CommonProxy {
     public CommonProxy() {}
 
     public void preInit(FMLPreInitializationEvent event) {
-        if(FMLCommonHandler.instance().getSide().isClient()) { MinecraftForge.EVENT_BUS.register(clientEventHandler = new ClientEventHandler()); }
+        if (FMLCommonHandler.instance().getSide().isClient()) {
+            MinecraftForge.EVENT_BUS.register(clientEventHandler = new ClientEventHandler());
+        }
         MinecraftForge.EVENT_BUS.register(eventTriggerHandler = new EventTriggerHandler());
         MinecraftForge.EVENT_BUS.register(eventHandler = new EventHandler());
+        MinecraftForge.EVENT_BUS.register(new KeyboardHandler());
         Mappet.EVENT_BUS.register(eventHandler);
 
         Dispatcher.register();
@@ -48,6 +55,7 @@ public class CommonProxy {
         CapabilityManager.INSTANCE.register(IHand.class, new HandStorage(), Hand::new);
         CapabilityManager.INSTANCE.register(IHud.class, new HudStorage(), Hud::new);
         CapabilityManager.INSTANCE.register(ISkin.class, new SkinStorage(), Skin::new);
+        CapabilityManager.INSTANCE.register(IShader.class, new ShaderStorage(), Shader::new);
 
         Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 
@@ -76,7 +84,7 @@ public class CommonProxy {
                 "The percentage of occlusion you can get. You can lower this if you find\n"
                         + "the occlusion to be too much or raise it for a more noticeable\n"
                         + "effect.");
-        String[] occlusionBlocksList = config.getStringList("Specific block occlusion:", "occlusion", new String[] { "wool-16-2.0" },
+        String[] occlusionBlocksList = config.getStringList("Specific block occlusion:", "occlusion", new String[]{"wool-16-2.0"},
                 "Add new entries (each on a new line) in the format\n"
                         + "<block id>-<metadata>-<occlusion double> to customize how much sound\n"
                         + "they should absorb when they are between you and the sound source.\n"
@@ -98,7 +106,7 @@ public class CommonProxy {
                         + "there will be less reverb. This is for aboveground areas with\n"
                         + "lots of stone and such like extreme hills biomes. There still might\n"
                         + "be some, but less then when the sky isn't visible.");
-        String[] reverbBlocksList = config.getStringList("Specific block reverb:", "reverb", new String[] { "soul_sand-16-2.0" },
+        String[] reverbBlocksList = config.getStringList("Specific block reverb:", "reverb", new String[]{"soul_sand-16-2.0"},
                 "Add values to this list (each on a new line) in the format \n"
                         + "<block id>-<metadata>-<reverb double>, to change how the block\n"
                         + "with that metadata absorbs or creates reverb. If the\n"

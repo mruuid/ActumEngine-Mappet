@@ -2,10 +2,10 @@
 {
   "modid": "ae",
   "name": "ActumEngine",
-  "description": "Example placeholder mod.",
+  "description": "A new evolution for Mappet'a!",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/mruuid/ActumEngine-Mappet/",
   "updateUrl": "",
   "authorList": ["unkn0wn"],
   "credits": "The Forge and FML guys, for making this example",

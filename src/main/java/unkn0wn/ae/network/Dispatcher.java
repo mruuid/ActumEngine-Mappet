@@ -1,7 +1,11 @@
 package unkn0wn.ae.network;
 
 import mchorse.mclib.network.AbstractDispatcher;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityTracker;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.relauncher.Side;
 import unkn0wn.ae.AEMod;
@@ -26,8 +30,24 @@ public class Dispatcher {
             this.register(PacketSounds.class, PacketSounds.ClientHandler.class, Side.CLIENT);
 
             this.register(PacketTextures.class, PacketTextures.ClientHandler.class, Side.CLIENT);
+
+            this.register(PacketShader.class, PacketShader.ClientHandler.class, Side.CLIENT);
+            this.register(PacketShader.class, PacketShader.ServerHandler.class, Side.SERVER);
+
+            this.register(PacketSoundLoop.class, PacketSoundLoop.ClientHandler.class, Side.CLIENT);
+
+            this.register(PacketScriptShader.class, PacketScriptShader.ClientHandler.class, Side.CLIENT);
         }
     };
+
+    public static void sendToTracked(Entity entity, IMessage message) {
+        EntityTracker tracker = ((WorldServer)entity.world).getEntityTracker();
+
+        for(EntityPlayer player : tracker.getTrackingPlayers(entity)) {
+            sendTo(message, (EntityPlayerMP)player);
+        }
+
+    }
 
     public static void sendTo(IMessage message, EntityPlayerMP player) {
         DISPATCHER.sendTo(message, player);

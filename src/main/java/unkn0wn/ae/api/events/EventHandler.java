@@ -4,15 +4,20 @@ import mchorse.mappet.CommonProxy;
 import mchorse.mappet.api.ui.components.UIComponent;
 import mchorse.mappet.api.utils.factory.MapFactory;
 import mchorse.mappet.events.RegisterUIComponentEvent;
+import mchorse.mclib.config.ConfigBuilder;
+import mchorse.mclib.events.RegisterConfigEvent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.input.Keyboard;
 import unkn0wn.ae.AEMod;
 import unkn0wn.ae.api.ui.components.UIColorPickerComponent;
@@ -30,6 +35,7 @@ import unkn0wn.ae.capabilities.hud.IHud;
 import unkn0wn.ae.capabilities.skin.ISkin;
 import unkn0wn.ae.capabilities.skin.Skin;
 import unkn0wn.ae.capabilities.skin.SkinProvider;
+import unkn0wn.ae.client.renderer.NpcPathRenderer;
 import unkn0wn.ae.network.Dispatcher;
 import unkn0wn.ae.network.packets.PacketCapability;
 import unkn0wn.ae.network.packets.PacketEvent;
@@ -42,6 +48,8 @@ public class EventHandler {
     public static final ResourceLocation HUD = new ResourceLocation(AEMod.MOD_ID, "hud");
     public static final ResourceLocation SKIN = new ResourceLocation(AEMod.MOD_ID, "skin");
 
+    private static final NpcPathRenderer npcPR = new NpcPathRenderer();
+
     @SubscribeEvent
     public void attachCapabilities(AttachCapabilitiesEvent<Entity> event) {
         if (event.getObject() instanceof EntityPlayer) {
@@ -50,6 +58,15 @@ public class EventHandler {
             event.addCapability(HUD, new HudProvider());
             event.addCapability(SKIN, new SkinProvider());
         }
+    }
+
+    @SubscribeEvent
+    @SideOnly(Side.CLIENT)
+    public void onRenderWorldLast(RenderWorldLastEvent event) {
+        if (!npcPR.shouldRenderDebugPath()) {
+            return;
+        }
+        npcPR.renderNpcPaths(event);
     }
 
     @SubscribeEvent

@@ -1,9 +1,12 @@
 package unkn0wn.ae.capabilities.hand;
 
 import mchorse.mappet.api.scripts.user.data.ScriptVector;
+import mchorse.mappet.client.RenderingHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import unkn0wn.ae.api.scripts.code.ScriptVectorAngle;
+
+import javax.vecmath.Vector3d;
 
 public class Hand implements IHand {
     private EntityPlayer player;
@@ -30,7 +33,6 @@ public class Hand implements IHand {
         }
         return null;
     }
-
 
     @Override
     public void setRotate(double angle, double x, double y, double z) {

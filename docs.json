@@ -1291,6 +1291,163 @@
             ]
         },
         {
+            "name": "unkn0wn.ae.api.scripts.user.renderer.IScriptShaders",
+            "doc": "Script API for controlling screen shaders.\n\n \u003cp\u003eShaders are addressed by their id (the name under which they are stored\n in the world\u0027s {@code mappet/shaders} folder). Several shaders can be\n \"opened\" at once — the renderer draws the one that was opened last, and\n closing it falls back to the previously opened one.\u003c/p\u003e\n\n \u003cp\u003eClient-side: like the dashboard panel, these calls affect the local\n player\u0027s renderer (use them from client-side script contexts).\u003c/p\u003e",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "setShaders",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "var1",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var3",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var5",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var7",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var9",
+                            "type": "int"
+                        },
+                        {
+                            "name": "var10",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var12",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var14",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var16",
+                            "type": "boolean"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setVignette",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "var1",
+                            "type": "boolean"
+                        },
+                        {
+                            "name": "var2",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var4",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var6",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var8",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var10",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var12",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var14",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var16",
+                            "type": "int"
+                        },
+                        {
+                            "name": "var17",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var19",
+                            "type": "double"
+                        },
+                        {
+                            "name": "var21",
+                            "type": "double"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "isEnabled",
+                    "doc": "",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "openShaders",
+                    "doc": "",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.shaders.ShaderData"
+                    },
+                    "arguments": [
+                        {
+                            "name": "data",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "closeShaders",
+                    "doc": "",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [
+                        {
+                            "name": "data",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "closeAllShaders",
+                    "doc": "",
+                    "returns": {
+                        "type": "int"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                }
+            ]
+        },
+        {
             "name": "unkn0wn.ae.api.scripts.user.renderer.IScriptHudRender",
             "doc": "Gets a {@link IScriptHudRender} hud.\n\n \u003cpre\u003e{@code\n    ALL,\n    HELMET,\n    PORTAL,\n    CROSSHAIRS,\n    BOSSHEALTH,\n    BOSSINFO,\n    ARMOR,\n    HEALTH,\n    FOOD,\n    AIR,\n    EXPERIENCE,\n    TEXT,\n    HEALTHMOUNT,\n    JUMPBAR,\n    CHAT,\n    PLAYER_LIST,\n    DEBUG,\n    POTION_ICONS,\n    SUBTITLES,\n    FPS_GRAPH,\n    VIGNETTE,\n    HOTBAR\n }\u003c/pre\u003e",
             "interfaces": [],
@@ -3041,20 +3198,93 @@
             "interfaces": [],
             "methods": [
                 {
-                    "name": "getPing",
-                    "doc": "Gets ping for player.",
+                    "name": "setMorph",
+                    "doc": "",
                     "returns": {
-                        "type": "int"
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "morph",
+                            "type": "AbstractMorph"
+                        },
+                        {
+                            "name": "isFirstPerson",
+                            "type": "boolean"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getMorph",
+                    "doc": "Get the player\u0027s current (third-person / body) morph, or null when the\n player isn\u0027t morphed.",
+                    "returns": {
+                        "type": "AbstractMorph"
                     },
                     "arguments": [],
                     "annotations": []
                 },
                 {
-                    "name": "getLanguage",
-                    "doc": "Gets the language that this player has set.",
+                    "name": "getMorph",
+                    "doc": "Get the player\u0027s morph. When {@code firstPerson} is {@code true}, the\n first-person morph set via {@link #setMorph(AbstractMorph, boolean)} is\n returned; otherwise the body morph (same as {@link #getMorph()}).",
                     "returns": {
-                        "type": "java.lang.String",
-                        "doc": "the player\u0027s language code"
+                        "type": "AbstractMorph"
+                    },
+                    "arguments": [
+                        {
+                            "name": "firstPerson",
+                            "type": "boolean",
+                            "doc": "whether to read the first-person morph"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "clearMorph",
+                    "doc": "Clear the player\u0027s morph entirely: removes the body morph (Metamorph\n capability) and the first-person morph, and notifies the client to stop\n rendering the first-person morph.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "playAnimation",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "animation",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "firstPerson",
+                            "type": "boolean"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "playAnimationWithCamera",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "animation",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getPing",
+                    "doc": "Gets ping for player.",
+                    "returns": {
+                        "type": "int"
                     },
                     "arguments": [],
                     "annotations": []
@@ -3170,6 +3400,16 @@
                     "annotations": []
                 },
                 {
+                    "name": "getShader",
+                    "doc": "Get\u0027s {@link IScriptShaders} for the current player.",
+                    "returns": {
+                        "type": "unkn0wn.ae.api.scripts.user.renderer.IScriptShaders",
+                        "doc": "the shaders instance"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
                     "name": "getCameraOver",
                     "doc": "Gets a {@link IScriptCameraOver} for the current player",
                     "returns": {
@@ -3267,6 +3507,46 @@
                         {
                             "name": "callback",
                             "type": "java.util.function.Consumer"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "stopLoopSound",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "event",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "playLoopSound",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "event",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "volume",
+                            "type": "float"
+                        },
+                        {
+                            "name": "pitch",
+                            "type": "float"
+                        },
+                        {
+                            "name": "ticks",
+                            "type": "int"
                         }
                     ],
                     "annotations": []
@@ -3737,11 +4017,25 @@
             "methods": [
                 {
                     "name": "getFancyWorld",
-                    "doc": "",
+                    "doc": "Get entity\u0027s fancy world.\n\n \u003cpre\u003e{@code\n    var s \u003d c.getSubject();\n    var fancyWorld \u003d s.getFancyWorld();\n }\u003c/pre\u003e",
                     "returns": {
                         "type": "unkn0wn.ae.api.scripts.user.IScriptFancyWorld"
                     },
                     "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "isObservable",
+                    "doc": "",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [
+                        {
+                            "name": "object",
+                            "type": "IScriptEntity"
+                        }
+                    ],
                     "annotations": []
                 }
             ]

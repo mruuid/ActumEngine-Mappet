@@ -1,0 +1,21 @@
+ae.gui.panels.shaders=Shaders
+
+ae.gui.shaders.docs.title=Documentation
+ae.gui.shaders.run.title=Run Shaders
+ae.gui.shaders.stop.title=Stop Shaders
+ae.gui.shaders.vertex=Vertex stage
+
+ae.gui.shaders.status.ready=Not applied
+ae.gui.shaders.status.applied=Applied
+ae.gui.shaders.status.error=Error: %s
+
+ae.gui.overlays.shaders=Overlays Shaders
+ae.gui.search=Search
+ae.gui.scripts.context.beautify=Beautify code
+
+key.ae.ranShaders=Run or stop Shaders
+key.ae.category=ActumEngine
+
+ae.config.title=ActumEngine
+ae.config.general.title=General
+ae.config.general.tooltip=General ActumEngine settings

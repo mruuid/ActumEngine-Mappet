@@ -1,12 +1,13 @@
 package unkn0wn.ae.api.scripts.mixins;
 
 import mchorse.blockbuster_pack.morphs.ImageMorph;
-import mchorse.mappet.api.scripts.code.entities.ScriptEntity;
 import mchorse.mappet.api.scripts.code.entities.ScriptPlayer;
 import mchorse.metamorph.api.MorphAPI;
 import mchorse.metamorph.api.morphs.AbstractMorph;
-import net.minecraft.entity.Entity;
+import mchorse.metamorph.capabilities.morphing.IMorphing;
+import mchorse.metamorph.capabilities.morphing.Morphing;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.Loader;
 import net.optifine.shaders.Shaders;
@@ -14,18 +15,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import unkn0wn.ae.AEMod;
-import unkn0wn.ae.api.scripts.code.renderer.ScriptCamera;
-import unkn0wn.ae.api.scripts.code.renderer.ScriptCameraOver;
-import unkn0wn.ae.api.scripts.code.renderer.ScriptHandRender;
-import unkn0wn.ae.api.scripts.code.renderer.ScriptHudRender;
-import unkn0wn.ae.api.scripts.user.renderer.IScriptCamera;
-import unkn0wn.ae.api.scripts.user.renderer.IScriptCameraOver;
-import unkn0wn.ae.api.scripts.user.renderer.IScriptHandRender;
-import unkn0wn.ae.api.scripts.user.renderer.IScriptHudRender;
+import unkn0wn.ae.api.scripts.code.renderer.*;
+import unkn0wn.ae.api.scripts.user.renderer.*;
 import unkn0wn.ae.network.Dispatcher;
-import unkn0wn.ae.network.packets.PacketClientData;
-import unkn0wn.ae.network.packets.PacketSounds;
-import unkn0wn.ae.network.packets.PacketTextures;
+import unkn0wn.ae.network.packets.*;
 import unkn0wn.ae.utils.*;
 import unkn0wn.ae.utils.mixins.utils.MixinTargetName;
 
@@ -45,8 +38,82 @@ public abstract class MixinScriptPlayer {
     @Shadow public abstract EntityPlayerMP getMinecraftPlayer();
     @Unique EntityPlayerMP player = getMinecraftPlayer();
     @Unique SkinUtils skinUtils = new SkinUtils(player);
+    @Unique public EntityPlayerMP entity;
 
-    private final EntityPlayerMP players = this.getMinecraftPlayer();
+    @Unique private final EntityPlayerMP players = this.getMinecraftPlayer();
+
+    public void setMorph(AbstractMorph morph, boolean isFirstPerson) {
+        EntityPlayerMP player = this.getMinecraftPlayer();
+
+        if (isFirstPerson) {
+            ServerMorphStorage.setFirstPerson(player.getUniqueID(), morph);
+
+            NBTTagCompound nbt = new NBTTagCompound();
+            nbt.setTag(ClientData.CLIENT_MORPH.name(), morph != null ? morph.toNBT() : new NBTTagCompound());
+            Dispatcher.sendTo(new PacketClientData(ClientData.CLIENT_MORPH, AccessType.SET, nbt), player);
+        } else if (morph != null) {
+            MorphAPI.morph((EntityPlayer) player, morph, true);
+        } else {
+            MorphAPI.demorph((EntityPlayer) player);
+        }
+
+    }
+
+    /**
+     * Get the player's current (third-person / body) morph, or null when the
+     * player isn't morphed.
+     */
+    public AbstractMorph getMorph() {
+        IMorphing cap = Morphing.get((EntityPlayer) this.getMinecraftPlayer());
+        return cap != null ? cap.getCurrentMorph() : null;
+    }
+
+    /**
+     * Get the player's morph. When {@code firstPerson} is {@code true}, the
+     * first-person morph set via {@link #setMorph(AbstractMorph, boolean)} is
+     * returned; otherwise the body morph (same as {@link #getMorph()}).
+     *
+     * @param firstPerson whether to read the first-person morph
+     */
+    public AbstractMorph getMorph(boolean firstPerson) {
+        return firstPerson
+                ? ServerMorphStorage.getFirstPerson(this.getMinecraftPlayer().getUniqueID())
+                : this.getMorph();
+    }
+
+    /**
+     * Clear the player's morph entirely: removes the body morph (Metamorph
+     * capability) and the first-person morph, and notifies the client to stop
+     * rendering the first-person morph.
+     */
+    public void clearMorph() {
+        EntityPlayerMP player = this.getMinecraftPlayer();
+
+        ServerMorphStorage.clearFirstPerson(player.getUniqueID());
+        MorphAPI.demorph((EntityPlayer) player);
+
+        NBTTagCompound nbt = new NBTTagCompound();
+        nbt.setTag(ClientData.CLIENT_MORPH.name(), new NBTTagCompound());
+        Dispatcher.sendTo(new PacketClientData(ClientData.CLIENT_MORPH, AccessType.SET, nbt), player);
+    }
+
+    public void playAnimation(String animation, boolean firstPerson) {
+        PacketPlayAnimation packet = new PacketPlayAnimation(animation, ((EntityPlayerMP)this.entity).getUniqueID().toString(), firstPerson);
+        Dispatcher.sendToTracked(this.entity, packet);
+        if (this.entity instanceof EntityPlayerMP) {
+            Dispatcher.sendTo(packet, (EntityPlayerMP)this.entity);
+        }
+
+    }
+
+    public void playAnimationWithCamera(String animation) {
+        Dispatcher.sendToTracked(this.entity, new PacketPlayAnimation(animation, ((EntityPlayerMP)this.entity).getUniqueID().toString(), true));
+        Dispatcher.sendToTracked(this.entity, new PacketPlayAnimation(animation, ((EntityPlayerMP)this.entity).getUniqueID().toString(), false));
+        if (this.entity instanceof EntityPlayerMP) {
+            Dispatcher.sendTo(new PacketPlayAnimation(animation, ((EntityPlayerMP)this.entity).getUniqueID().toString(), true), (EntityPlayerMP)this.entity);
+        }
+
+    }
 
     /**
      * Gets ping for player.
@@ -58,9 +125,9 @@ public abstract class MixinScriptPlayer {
      *
      * @return the player's language code
      */
-    public String getLanguage() {
+    /*public String getLanguage() {
         return ((EntityPlayer) this.players).getLanguage();
-    }
+    }*/
 
     /**
      * Sends a packet to update sounds for this player.
@@ -199,6 +266,15 @@ public abstract class MixinScriptPlayer {
     }
 
     /**
+     * Get's {@link IScriptShaders} for the current player.
+     *
+     * @return the shaders instance
+     * */
+    public IScriptShaders getShader() {
+        return new ScriptShaders(this.getMinecraftPlayer());
+    }
+
+    /**
      * Gets a {@link IScriptCameraOver} for the current player
      *
      * @return the camera instance
@@ -290,5 +366,13 @@ public abstract class MixinScriptPlayer {
         PacketClientData.callback.put(this.getMinecraftPlayer().getUniqueID(), callback);
         Dispatcher.sendTo(new PacketClientData(ClientData.SHADER, AccessType.GET, nbtTagCompound), this.getMinecraftPlayer());
 
+    }
+
+    public void stopLoopSound(String event) {
+        mchorse.mappet.network.Dispatcher.sendTo(new PacketSoundLoop(event, false), this.getMinecraftPlayer());
+    }
+
+    public void playLoopSound(String event, float volume, float pitch, int ticks) {
+        mchorse.mappet.network.Dispatcher.sendTo(new PacketSoundLoop(event, volume, pitch, ticks, true), this.getMinecraftPlayer());
     }
 }

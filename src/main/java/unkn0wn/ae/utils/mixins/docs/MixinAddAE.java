@@ -39,6 +39,7 @@ public abstract class MixinAddAE {
         DocList renderer = new DocList();
         DocList mixins = new DocList();
         DocList data = new DocList();
+        DocList shader = new DocList();
 
         if (Mappet.scriptDocsNewStructure.get()) {
             trigger.name = "/ Triggers";
@@ -64,11 +65,18 @@ public abstract class MixinAddAE {
             data.parent = scripting;
             data.source = "Mappet";
             scripting.entries.add(data);
+
+            shader.name = "/ Shader (ONLY ShadersPanel)";
+            shader.doc = GuiDocumentationOverlayPanel.docs.getPackage("unkn0wn.ae.api.shaders.user").doc;
+            shader.parent = scripting;
+            shader.source = "AcrumEngine";
+            scripting.entries.add(shader);
         }
         docLists.put("trigger", trigger);
         docLists.put("renderer", renderer);
         docLists.put("mixins", mixins);
         docLists.put("data", data);
+        docLists.put("shader", shader);
     }
 
     @Inject(
@@ -86,5 +94,6 @@ public abstract class MixinAddAE {
         functions.add(() -> GuiDocumentationOverlayPanel.addWithNewStructure(input -> input.name.contains("renderer"), docClass, docLists.get("renderer")));
         functions.add(() -> GuiDocumentationOverlayPanel.addWithNewStructure(input -> input.name.contains("mixins"), docClass, docLists.get("mixins")));
         functions.add(() -> GuiDocumentationOverlayPanel.addWithNewStructure(input -> input.name.contains("data"), docClass, docLists.get("data")));
+        functions.add(() -> GuiDocumentationOverlayPanel.addWithNewStructure(input -> input.name.contains("shader"), docClass, docLists.get("shader")));
     }
 }

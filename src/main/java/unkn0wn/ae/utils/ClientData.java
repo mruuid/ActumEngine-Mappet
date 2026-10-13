@@ -28,14 +28,20 @@ public enum ClientData {
         }
     },
     SCREEN {
+        @Override
         public Object process(NBTTagCompound data) {
             return data.getString(this.name());
         }
     },
     SHADER {
+        @Override
         public Object process(NBTTagCompound data) {
             return data.getString(this.name());
         }
+    },
+    CLIENT_MORPH {
+        @Override
+        public Object process(NBTTagCompound data) { return data.getTag(this.name()); }
     };
 
     ClientData() {

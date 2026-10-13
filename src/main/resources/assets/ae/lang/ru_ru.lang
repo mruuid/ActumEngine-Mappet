@@ -1,0 +1,21 @@
+ae.gui.panels.shaders=Шейдеры
+
+ae.gui.shaders.docs.title=Документация
+ae.gui.shaders.run.title=Запустить шейдеры
+ae.gui.shaders.stop.title=Остановить шейдеры
+ae.gui.shaders.vertex=Вершинный шейдер
+
+ae.gui.shaders.status.ready=Не применён
+ae.gui.shaders.status.applied=Применён
+ae.gui.shaders.status.error=Ошибка: %s
+
+ae.gui.overlays.shaders=Оверлей шейдеров
+ae.gui.search=Поиск
+ae.gui.scripts.context.beautify=Форматировать код
+
+key.ae.ranShaders=Запустить или остановить шейдеры
+key.ae.category=ActumEngine
+
+ae.config.title=ActumEngine
+ae.config.general.title=Общие
+ae.config.general.tooltip=Общие настройки ActumEngine

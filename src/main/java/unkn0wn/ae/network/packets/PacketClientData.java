@@ -129,6 +129,8 @@ public class PacketClientData implements IMessage {
                     return new ScreenProvider();
                 case SHADER:
                     return new ShaderProvider();
+                case CLIENT_MORPH:
+                    return new ClientMorphProvider();
             }
             throw new IllegalArgumentException("Invalid typeEnum");
         }

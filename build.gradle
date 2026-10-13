@@ -211,7 +211,8 @@ task scriptingJavadocsJson(type: Exec) {
     executable Os.isFamily(Os.FAMILY_WINDOWS) ? "javadoc" : "${org.gradle.internal.jvm.Jvm.current().getJavaHome()}/bin/javadoc"
     List<String> subpackages = new ArrayList(Arrays.asList(
             "unkn0wn.ae.api.scripts.user",
-            "unkn0wn.ae.api.scripts.mixins"
+            "unkn0wn.ae.api.scripts.mixins",
+            "unkn0wn.ad.api.shaders.user"
     ))
     List<String> excluded = new ArrayList(Arrays.asList(
             "unkn0wn.ae.utils.mixins.client",
