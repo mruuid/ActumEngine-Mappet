@@ -56,8 +56,8 @@ public class PacketSoundLoop implements IMessage {
         buf.writeBoolean(this.enabled);
     }
 
+    @SideOnly(Side.CLIENT)
     public static class ClientHandler extends ClientMessageHandler<PacketSoundLoop> {
-        @SideOnly(Side.CLIENT)
         public void run(EntityPlayerSP player, PacketSoundLoop message) {
             if (message.enabled) {
                 ResourceLocation rl = new ResourceLocation(message.sound);

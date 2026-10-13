@@ -2,6 +2,7 @@ package unkn0wn.ae.utils;
 
 import mchorse.mappet.client.morphs.WorldMorph;
 import mchorse.metamorph.api.Morph;
+import mchorse.metamorph.api.morphs.AbstractMorph;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -17,6 +18,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -29,6 +31,37 @@ public class RenderingHandler {
     public static Morph clientMorph = new Morph();
     public static List<WorldMorph> worldMorphs = new ArrayList();
     private static Minecraft mc = Minecraft.getMinecraft();
+
+    /**
+     * Tick the first-person morph's animator.
+     *
+     * <p>The body (third-person) morph is ticked by Metamorph through the
+     * {@code Morphing} capability, but the first-person morph
+     * ({@link #clientMorph}) is a standalone object that is only rendered in
+     * {@link #onRenderLast(RenderWorldLastEvent)}. Without ticking it, its
+     * Chameleon {@code Animator} never advances
+     * ({@code ActionPlayback.ticks += speed}), so animations played via
+     * {@code playAnimation(..., true)} stay frozen on the first frame. This
+     * handler does exactly what Metamorph does for the body morph.</p>
+     */
+    @SubscribeEvent
+    public void onClientTick(TickEvent.ClientTickEvent event) {
+        if (event.phase != TickEvent.Phase.END || clientMorph.isEmpty()) {
+            return;
+        }
+
+        EntityPlayerSP player = mc.player;
+
+        if (player == null || player.isSpectator()) {
+            return;
+        }
+
+        AbstractMorph morph = clientMorph.get();
+
+        if (morph != null) {
+            morph.update(player);
+        }
+    }
 
     @SubscribeEvent
     public void onRenderLast(RenderWorldLastEvent event) {

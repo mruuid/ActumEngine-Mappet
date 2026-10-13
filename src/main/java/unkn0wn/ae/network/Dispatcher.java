@@ -37,6 +37,8 @@ public class Dispatcher {
             this.register(PacketSoundLoop.class, PacketSoundLoop.ClientHandler.class, Side.CLIENT);
 
             this.register(PacketScriptShader.class, PacketScriptShader.ClientHandler.class, Side.CLIENT);
+
+            this.register(PacketPlayAnimation.class, PacketPlayAnimation.ClientHandler.class, Side.CLIENT);
         }
     };
 

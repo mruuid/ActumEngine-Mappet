@@ -46,8 +46,8 @@ public class PacketPlayAnimation implements IMessage {
         buf.writeBoolean(this.firstperson);
     }
 
+    @SideOnly(Side.CLIENT)
     public static class ClientHandler extends ClientMessageHandler<PacketPlayAnimation> {
-        @SideOnly(Side.CLIENT)
         public void run(EntityPlayerSP player, PacketPlayAnimation message) {
             player.world.getLoadedEntityList().stream().filter((entity) -> entity.getUniqueID().equals(UUID.fromString(message.uuid))).forEach((entity) -> {
                 AbstractMorph morph = this.getMorph(entity, message.firstperson);
