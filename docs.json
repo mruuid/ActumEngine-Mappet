@@ -4093,6 +4093,650 @@
                     "annotations": []
                 }
             ]
+        },
+        {
+            "name": "unkn0wn.ae.api.shaders.user.IScriptVertexAPI",
+            "doc": "Documents the GLSL built-ins that are available inside a user-authored\n vertex shader compiled by {@code ShaderRenderer}.\n\n \u003cp\u003eA vertex shader runs once per vertex and must transform the incoming\n position into clip space by writing {@code gl_Position}. ActumEngine compiles\n vertex shaders with {@code #version 120} and feeds them a single fullscreen\n quad, so the standard fixed-function attributes and matrices below are the\n ones you will actually use.\u003c/p\u003e",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "main",
+                    "doc": "The vertex shader entry point. Required. Runs once per vertex and must\n assign {@code gl_Position}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "gl_Position",
+                    "doc": "{@code vec4} — output. The transformed vertex position in clip space.\n Typically {@code gl_Position \u003d gl_ModelViewProjectionMatrix * gl_Vertex;}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "gl_Vertex",
+                    "doc": "{@code vec4} — input attribute. The object-space position of the current\n vertex.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "gl_MultiTexCoord0",
+                    "doc": "{@code vec4} — input attribute. Texture coordinate set 0 of the current\n vertex (the only attribute the engine\u0027s fullscreen quad populates).",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "gl_TexCoord",
+                    "doc": "{@code vec4 gl_TexCoord[]} — varying array forwarded to the fragment\n shader. Assign {@code gl_TexCoord[0]} to pass UVs through, e.g.\n {@code gl_TexCoord[0] \u003d gl_MultiTexCoord0;}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "gl_ModelViewProjectionMatrix",
+                    "doc": "{@code mat4} — combined model-view-projection matrix uniform.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "gl_ModelViewMatrix",
+                    "doc": "{@code mat4} — model-view matrix uniform.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "gl_ProjectionMatrix",
+                    "doc": "{@code mat4} — projection matrix uniform.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "gl_NormalMatrix",
+                    "doc": "{@code mat3} — normal matrix uniform, used to transform normals into eye\n space.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "gl_Normal",
+                    "doc": "{@code vec3} — input attribute. The object-space normal of the current\n vertex.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "gl_PointSize",
+                    "doc": "{@code float} — output. The rasterized point size in pixels.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.shaders.user.IScriptShader",
+            "doc": "Scripting API for controlling a fullscreen GLSL shader at runtime.\n\n \u003cp\u003eThese map directly onto {@code unkn0wn.ae.utils.shaders.ShaderRenderer}.\n A uniform only takes effect while a shader is active and the shader actually\n declares that uniform (unknown uniforms are silently ignored).\u003c/p\u003e",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "isActive",
+                    "doc": "Whether a shader is currently applied and running.",
+                    "returns": {
+                        "type": "boolean"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setUniform",
+                    "doc": "Set a float uniform by name. No-op if the shader isn\u0027t active or doesn\u0027t\n declare the uniform.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "value",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setUniform2f",
+                    "doc": "Set a vec2 uniform by name.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "x",
+                            "type": "float"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setUniform3f",
+                    "doc": "Set a vec3 uniform by name.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "x",
+                            "type": "float"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float"
+                        },
+                        {
+                            "name": "z",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setUniform4f",
+                    "doc": "Set a vec4 uniform by name.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "x",
+                            "type": "float"
+                        },
+                        {
+                            "name": "y",
+                            "type": "float"
+                        },
+                        {
+                            "name": "z",
+                            "type": "float"
+                        },
+                        {
+                            "name": "w",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setUniformi",
+                    "doc": "Set an int/sampler uniform by name.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "name",
+                            "type": "java.lang.String"
+                        },
+                        {
+                            "name": "value",
+                            "type": "int"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setTime",
+                    "doc": "Override the shader\u0027s time (in seconds). Pass a negative value to restore\n the automatic time based on when the shader was applied.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "seconds",
+                            "type": "float"
+                        }
+                    ],
+                    "annotations": []
+                }
+            ]
+        },
+        {
+            "name": "unkn0wn.ae.api.shaders.user.IScriptFragmentAPI",
+            "doc": "Documents the GLSL built-ins that are available inside a user-authored\n fragment (pixel) shader compiled by {@code ShaderRenderer}.\n\n \u003cp\u003eA fragment shader runs once per pixel and must write the final colour to\n {@code gl_FragColor}. ActumEngine compiles fragment shaders with\n {@code #version 120}, enabling {@code GL_OES_standard_derivatives} when\n available, so the derivative functions ({@code dFdx}, {@code dFdy},\n {@code fwidth}) are safe to use.\u003c/p\u003e\n\n \u003cp\u003eCustom uniforms bound by the engine (see {@link IScriptShader}) are also\n readable here, e.g. {@code tex}, {@code iTime}, {@code iResolution},\n {@code iPlayerPos}, {@code iSunDir}, etc. A uniform only takes effect while\n the shader is active and actually declares it.\u003c/p\u003e",
+            "interfaces": [],
+            "methods": [
+                {
+                    "name": "main",
+                    "doc": "The fragment shader entry point. Required. Runs once per fragment and\n must assign a value to {@code gl_FragColor}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "gl_FragColor",
+                    "doc": "{@code vec4} — the only mandatory output. Write the final RGBA colour of\n the fragment here, in the {@code [0, 1]} range.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "gl_FragCoord",
+                    "doc": "{@code vec4} — window-relative coordinate {@code (x, y, z, 1/w)} of the\n current fragment. Useful for procedural effects that need pixel position.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "vec2",
+                    "doc": "{@code vec2} floating-point vector type.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "vec3",
+                    "doc": "{@code vec3} floating-point vector type.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "vec4",
+                    "doc": "{@code vec4} floating-point vector type.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "float_",
+                    "doc": "{@code float} scalar type.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "int_",
+                    "doc": "{@code int} scalar type.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "bool",
+                    "doc": "{@code bool} scalar type.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "sampler2D",
+                    "doc": "{@code sampler2D} — handle to a 2D texture uniform (e.g. {@code tex}).",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "texture2D",
+                    "doc": "{@code vec4 texture2D(sampler2D sampler, vec2 coord)} — legacy GLSL 120\n texture lookup. Samples {@code sampler} at {@code coord} (UV in the\n {@code [0, 1]} range).",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "texture",
+                    "doc": "{@code texture(sampler, coord)} — modern texture lookup (GLSL 130+).\n Provided for forward-compatibility; prefer {@code texture2D} for\n {@code #version 120}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "sin",
+                    "doc": "{@code float sin(float)} / {@code genType sin(genType)} — sine,\n component-wise on vectors.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "cos",
+                    "doc": "{@code float cos(float)} / {@code genType cos(genType)} — cosine,\n component-wise on vectors.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "tan",
+                    "doc": "{@code float tan(float)} / {@code genType tan(genType)} — tangent.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "asin",
+                    "doc": "{@code float asin(float)} / {@code genType asin(genType)} — arc sine.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "acos",
+                    "doc": "{@code float acos(float)} / {@code genType acos(genType)} — arc cosine.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "atan",
+                    "doc": "{@code float atan(float)} / {@code genType atan(genType)} — arc tangent.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "pow",
+                    "doc": "{@code float pow(float x, float y)} / {@code genType pow(genType, genType)}\n — {@code x} raised to the power {@code y}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "exp",
+                    "doc": "{@code float exp(float)} / {@code genType exp(genType)} — natural\n exponentiation ({@code e^x}).",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "log",
+                    "doc": "{@code float log(float)} / {@code genType log(genType)} — natural\n logarithm.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "sqrt",
+                    "doc": "{@code float sqrt(float)} / {@code genType sqrt(genType)} — square root.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "abs",
+                    "doc": "{@code float abs(float)} / {@code genType abs(genType)} — absolute\n value.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "floor",
+                    "doc": "{@code float floor(float)} / {@code genType floor(genType)} — nearest\n integer less than or equal to {@code x}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "ceil",
+                    "doc": "{@code float ceil(float)} / {@code genType ceil(genType)} — nearest\n integer greater than or equal to {@code x}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "fract",
+                    "doc": "{@code float fract(float)} / {@code genType fract(genType)} — fractional\n part, {@code x - floor(x)}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "mod",
+                    "doc": "{@code float mod(float x, float y)} / {@code genType mod(genType, float)}\n — modulus, {@code x - y * floor(x / y)}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "min",
+                    "doc": "{@code float min(float, float)} / {@code genType min(genType, genType)} —\n component-wise minimum.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "max",
+                    "doc": "{@code float max(float, float)} / {@code genType max(genType, genType)} —\n component-wise maximum.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "clamp",
+                    "doc": "{@code float clamp(float x, float minVal, float maxVal)} — clamps\n {@code x} into the {@code [minVal, maxVal]} range.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "mix",
+                    "doc": "{@code float mix(float x, float y, float a)} / {@code genType mix(...)} —\n linear interpolation between {@code x} and {@code y} by {@code a}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "step",
+                    "doc": "{@code float step(float edge, float x)} — {@code 0.0} if {@code x \u003c edge},\n otherwise {@code 1.0}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "smoothstep",
+                    "doc": "{@code float smoothstep(float edge0, float edge1, float x)} — Hermite\n interpolation between {@code 0.0} and {@code 1.0}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "length",
+                    "doc": "{@code float length(genType)} — Euclidean length (magnitude) of a vector.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "distance",
+                    "doc": "{@code float distance(genType p0, genType p1)} — distance between two\n points.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "dot",
+                    "doc": "{@code float dot(genType, genType)} — dot product of two vectors.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "cross",
+                    "doc": "{@code vec3 cross(vec3, vec3)} — cross product of two 3D vectors.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "normalize",
+                    "doc": "{@code genType normalize(genType)} — returns a vector of unit length\n pointing in the same direction.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "reflect",
+                    "doc": "{@code genType reflect(genType I, genType N)} — reflects incident vector\n {@code I} about surface normal {@code N}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "refract",
+                    "doc": "{@code genType refract(genType I, genType N, float eta)} — refraction\n vector for incident vector {@code I}, surface normal {@code N} and ratio\n of indices of refraction {@code eta}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "dFdx",
+                    "doc": "{@code float dFdx(float)} / {@code genType dFdx(genType)} — screen-space\n derivative along {@code x} (requires {@code GL_OES_standard_derivatives}).",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "dFdy",
+                    "doc": "{@code float dFdy(float)} / {@code genType dFdy(genType)} — screen-space\n derivative along {@code y}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "fwidth",
+                    "doc": "{@code float fwidth(float)} / {@code genType fwidth(genType)} —\n {@code abs(dFdx(x)) + abs(dFdy(x))}.",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                }
+            ]
         }
     ],
     "packages": [
@@ -4110,6 +4754,9 @@
         },
         {
             "name": "unkn0wn.ae.api.scripts.mixins"
+        },
+        {
+            "name": "unkn0wn.ae.api.shaders.user"
         }
     ]
 }

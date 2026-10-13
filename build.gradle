@@ -212,7 +212,7 @@ task scriptingJavadocsJson(type: Exec) {
     List<String> subpackages = new ArrayList(Arrays.asList(
             "unkn0wn.ae.api.scripts.user",
             "unkn0wn.ae.api.scripts.mixins",
-            "unkn0wn.ad.api.shaders.user"
+            "unkn0wn.ae.api.shaders.user"
     ))
     List<String> excluded = new ArrayList(Arrays.asList(
             "unkn0wn.ae.utils.mixins.client",
