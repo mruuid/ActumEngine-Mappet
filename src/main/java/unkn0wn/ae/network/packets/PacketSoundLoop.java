@@ -77,7 +77,7 @@ public class PacketSoundLoop implements IMessage {
                 AEMod.listFirstTicks.add(message.ticks);
                 Minecraft.getMinecraft().getSoundHandler().playSound(masterRecord);
             } else if (!message.enabled) {
-                for(int i = 0; i < AEMod.listSounds.toArray().length; ++i) {
+                for(int i = AEMod.listSounds.size() - 1; i >= 0; --i) {
                     if (((ISound)AEMod.listSounds.get(i)).getSoundLocation().toString().equals(message.sound)) {
                         Minecraft.getMinecraft().getSoundHandler().stopSound((ISound)AEMod.listSounds.get(i));
                         AEMod.listSounds.remove(i);

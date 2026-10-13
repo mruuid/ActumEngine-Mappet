@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import unkn0wn.ae.utils.sound.SoundEventHandler;
+import unkn0wn.ae.utils.sound.SoundLoopHandler;
 import unkn0wn.ae.utils.sound.SoundTickHandler;
 import unkn0wn.ae.utils.RenderingHandler;
 
@@ -34,6 +35,7 @@ public class ClientProxy extends CommonProxy {
     public void registerTickHandlers()
     {
         FMLCommonHandler.instance().bus().register(new SoundTickHandler());
+        FMLCommonHandler.instance().bus().register(new SoundLoopHandler());
     }
 
     public void registerEventHandlers() {

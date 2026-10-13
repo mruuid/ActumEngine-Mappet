@@ -2,6 +2,8 @@ package unkn0wn.ae.capabilities.hand;
 
 import mchorse.mappet.api.scripts.user.data.ScriptVector;
 import mchorse.mappet.client.RenderingHandler;
+import mchorse.metamorph.api.Morph;
+import mchorse.metamorph.api.MorphManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import unkn0wn.ae.api.scripts.code.ScriptVectorAngle;
@@ -10,6 +12,10 @@ import javax.vecmath.Vector3d;
 
 public class Hand implements IHand {
     private EntityPlayer player;
+
+    public Morph morph = new Morph();
+    public String skinPath = new String();
+    public String skinType = new String();
 
     public ScriptVectorAngle mainRotate = new ScriptVectorAngle(0, 0, 0, 0);
     public ScriptVector mainPosition = new ScriptVector(0, 0, 0);
@@ -94,6 +100,10 @@ public class Hand implements IHand {
     public NBTTagCompound serializeNBT() {
         NBTTagCompound tag = new NBTTagCompound();
 
+        tag.setTag("morph", !this.morph.isEmpty() ? this.morph.toNBT() : new NBTTagCompound());
+        tag.setString("path", this.skinPath);
+        tag.setString("type", this.skinType);
+
         NBTTagCompound mainRotate = new NBTTagCompound();
         mainRotate.setDouble("angle", this.mainRotate.angle);
         mainRotate.setDouble("x", this.mainRotate.x);
@@ -129,6 +139,10 @@ public class Hand implements IHand {
 
     @Override
     public void deserializeNBT(NBTTagCompound tag) {
+        this.morph.set(MorphManager.INSTANCE.morphFromNBT(tag.getCompoundTag("morph")));
+        this.skinPath = tag.getString("path");
+        this.skinType = tag.getString("type");
+
         if (tag.hasKey("mainRotate")) {
             NBTTagCompound mainRotate = tag.getCompoundTag("mainRotate");
             this.mainRotate = new ScriptVectorAngle(mainRotate.getDouble("angle"), mainRotate.getDouble("x"), mainRotate.getDouble("y"), mainRotate.getDouble("z"));

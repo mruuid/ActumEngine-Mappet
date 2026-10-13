@@ -1,6 +1,7 @@
 package unkn0wn.ae.api.scripts.user.renderer;
 
 import mchorse.mappet.api.scripts.user.data.ScriptVector;
+import mchorse.metamorph.api.morphs.AbstractMorph;
 import unkn0wn.ae.api.scripts.code.ScriptVectorAngle;
 
 public interface IScriptHandRender {
@@ -119,4 +120,16 @@ public interface IScriptHandRender {
     void rotateTo(String interpolation, int durationTicks, float angle, float x, float y, float z);
 
     void moveTo(String interpolation, int durationTicks, float x, float y, float z);
+
+    void setSkinPath(String path);
+
+    void setSkinType(String type);
+
+    String getSkinPath();
+
+    String getSkinType();
+
+    AbstractMorph getMorph();
+
+    void setMorph(AbstractMorph morph);
 }

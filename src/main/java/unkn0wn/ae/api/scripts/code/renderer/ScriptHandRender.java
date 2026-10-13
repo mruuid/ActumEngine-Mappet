@@ -4,6 +4,7 @@ import mchorse.mappet.CommonProxy;
 import mchorse.mappet.api.scripts.user.data.ScriptVector;
 import mchorse.mappet.utils.RunnableExecutionFork;
 import mchorse.mclib.utils.Interpolation;
+import mchorse.metamorph.api.morphs.AbstractMorph;
 import net.minecraft.entity.player.EntityPlayerMP;
 import unkn0wn.ae.api.scripts.code.ScriptVectorAngle;
 import unkn0wn.ae.api.scripts.user.renderer.IScriptHandRender;
@@ -19,6 +20,49 @@ public class ScriptHandRender implements IScriptHandRender {
         this.player = player;
         this.hand = Hand.get(player);
         this.hand.setTypeHand(hand);
+    }
+
+    @Override
+    public void setSkinPath(String path) {
+        this.hand.skinPath = path;
+        this.sendToCapability();
+    }
+
+    @Override
+    public void setSkinType(String type) {
+        type = type.toLowerCase();
+        if (!type.contains("alex") && !type.contains("slim")) {
+            if (!type.contains("steve") && !type.contains("fred") && !type.contains("default")) {
+                this.hand.skinType = "";
+            } else {
+                this.hand.skinType = "default";
+            }
+        } else {
+            this.hand.skinType = "slim";
+        }
+
+        this.sendToCapability();
+    }
+
+    @Override
+    public String getSkinPath() {
+        return this.hand.skinPath;
+    }
+
+    @Override
+    public String getSkinType() {
+        return this.hand.skinType;
+    }
+
+    @Override
+    public AbstractMorph getMorph() {
+        return this.hand.morph.get();
+    }
+
+    @Override
+    public void setMorph(AbstractMorph morph) {
+        this.hand.morph.set(morph);
+        this.sendToCapability();
     }
 
     @Override

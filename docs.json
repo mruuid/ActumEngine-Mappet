@@ -1881,6 +1881,75 @@
                         }
                     ],
                     "annotations": []
+                },
+                {
+                    "name": "setSkinPath",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "path",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "setSkinType",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "type",
+                            "type": "java.lang.String"
+                        }
+                    ],
+                    "annotations": []
+                },
+                {
+                    "name": "getSkinPath",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getSkinType",
+                    "doc": "",
+                    "returns": {
+                        "type": "java.lang.String"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "getMorph",
+                    "doc": "",
+                    "returns": {
+                        "type": "AbstractMorph"
+                    },
+                    "arguments": [],
+                    "annotations": []
+                },
+                {
+                    "name": "setMorph",
+                    "doc": "",
+                    "returns": {
+                        "type": "void"
+                    },
+                    "arguments": [
+                        {
+                            "name": "morph",
+                            "type": "AbstractMorph"
+                        }
+                    ],
+                    "annotations": []
                 }
             ]
         },
