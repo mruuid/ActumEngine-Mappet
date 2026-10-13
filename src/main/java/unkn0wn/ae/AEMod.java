@@ -48,7 +48,7 @@ import java.util.*;
 @Mod(
     modid = AEMod.MOD_ID,
     name = "ActumEngine",
-    version = "0.2.2b",
+    version = "0.2.3b",
     dependencies =
     "required-after:mixinbooter@[7.1,);" +
     "required-after:mclib@[2.4.2,);" +
